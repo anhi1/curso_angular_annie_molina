@@ -5,7 +5,8 @@
 
 let nun = 0;
 do{
-    nun +=1;
+    
     console.log(nun);
-}while(nun<10);
+    nun +=1;
+}while(nun<=10);
 
