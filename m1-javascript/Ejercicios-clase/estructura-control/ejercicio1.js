@@ -13,3 +13,4 @@ if(numero > 0){
     console.log('es cero');
 }
 
+//refactor
