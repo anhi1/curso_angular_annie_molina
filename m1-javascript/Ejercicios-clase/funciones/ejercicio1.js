@@ -14,9 +14,11 @@ en  consola un saludo personalizado
 
  let username = "betty";
 
- function isValidUsername(username) {
-    return username.length > 0 && username.length < 50;
- }
 
+ const minimo = 0;
+ const maximo = 50;
+ function isValidUsername(username) {
+    return username.length > minimo && username.length < maximo;
+ }
  let valiUser = isValidUsername("ejemplousuario");
  
