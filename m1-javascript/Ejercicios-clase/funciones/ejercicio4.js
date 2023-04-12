@@ -6,6 +6,5 @@ argumentos a y b, y devuelva
 su producto
 */
 
-function name(params) {
-    
-}
+let multiplicar = (number1, number2) => number1*number2
+console.log(`multiplicacion de 3 x 5 = ${multiplicar(3,5)}`);
