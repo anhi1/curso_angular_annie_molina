@@ -7,9 +7,9 @@ let numero = 6;
 
 if(numero > 0){
     console.log('es positivo');
-    }else if(numero < 0){
+}else if(numero < 0){
     console.log('es negativo');
-    }else{
+}else{
     console.log('es cero');
-   }
+}
 
