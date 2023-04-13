@@ -23,5 +23,7 @@ console.log(`promedio de calificaciones: ${calificacionMedia}`);
 //opcion 2(resumen del for): sumar todo con reduce y luego dividir para calcular la media
 //reduce : el proceso de acumulacion
 let calcularSumatorio =(sumatorio, calificacion) => sumatorio + calificacion
-
-let sumatorio2 = calificaciones.reduce(calcularSumatorio)
+let sumatorio2 = calificaciones.reduce(calcularSumatorio,0); // 0 es como poner let sumatorio=0
+console.log(`suma total de las calificaciones: ${sumatorio2}`);
+let calificacionMedia2 = sumatorio2/calificaciones.length;
+console.log(`promedio de calificaciones ${calificacionMedia2}`);
