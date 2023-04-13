@@ -6,6 +6,8 @@ Crear y manipular un Array
 4. Muestra en consola la longitud del array.
 */
 let fruta = ['manzana','platano','naranja']
+fruta[1] += " rico";
+console.log(fruta);
 
 let agregar = fruta.push('pera');
 console.log(fruta);
@@ -15,3 +17,4 @@ console.log('se eliminó la manzana: ' + fruta);
 
 let longArray = fruta.length
 console.log('la longitud del array es ' + longArray);
+
