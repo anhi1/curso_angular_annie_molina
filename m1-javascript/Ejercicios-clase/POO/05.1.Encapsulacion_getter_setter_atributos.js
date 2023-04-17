@@ -1,4 +1,6 @@
 //ENCAPSULACION GETTER AND SETTERS
+//ejemplo de clase con atributos encapsulado utilizando getter and setter
+// se encapsula el atributo edad para que solamnete se puede modificar a traves del set
 //# = es como privado(encapsulado), no lo puedo ejecutar fuera de la clase
 // _ = no está encapsulado, no es privado
 

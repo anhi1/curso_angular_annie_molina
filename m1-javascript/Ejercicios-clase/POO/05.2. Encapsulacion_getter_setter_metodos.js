@@ -1,3 +1,6 @@
+
+//Ejempo de clase con metodos encapsulados utilizndo getter and setter
+//
 class Persona {
   
 
