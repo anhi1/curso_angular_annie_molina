@@ -16,7 +16,15 @@ class Vehiculo{
 
     apagar(){
         this.estaEncendido = false;
-    }    
+    }
+    
+    acelerar(cantidad){
+        this.velocidad += cantidad;
+    }
+
+    frenar(cantidad){
+        this.velocidad += cantidad;
+    }
 }
 
 let vehiculo1 = new Vehiculo("Toyota","Prius", "rojo", "120");
@@ -24,4 +32,11 @@ console.log(vehiculo1.estaEncendido);
 
 vehiculo1.encender();
 console.log(vehiculo1.estaEncendido);
+
+vehiculo1.apagar();
+console.log(vehiculo1.estaEncendido);
+
+console.log(vehiculo1.velocidad);
+vehiculo1.acelerar(50);
+console.log(vehiculo1.velocidad);
 
