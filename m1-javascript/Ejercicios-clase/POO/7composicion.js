@@ -1,5 +1,5 @@
-// clase usuario
 
+// CLASE USUARIO
 class User{
     constructor(firstName, email,){
         this.firstName = firstName;
@@ -13,7 +13,9 @@ let user2 = new User("usuario2", "usuario2@gmail.com");
 let user3 = new User("usuario3", "usuario3@gmail.com");
 
 
-//clase evento que tenga titulo, fecha, usuario admin
+
+// CLASE EVENTO
+// que tenga titulo, fecha, usuario admin
 class Event {
     constructor(title, date, adminUser){
         this.title = title;
@@ -22,7 +24,7 @@ class Event {
     }
 }
 
-//PASAR EL OBJETO
+//PASAR EL OBJETO USUARIO EN EL CONSTRUCTOR
  let event1 = new Event("Reunion de desarrollo", new Date("2023-04-18"), user1);
 
  console.log(event1.title);
@@ -31,10 +33,20 @@ class Event {
  console.log(event1.adminUser.firstName);//acceder al nombre del usuario
 
 
+
  //cambiar el usuario del event
  event1.adminUser = user2;
  console.log(event1.adminUser.email);
  console.log(event1.adminUser.firstName);
 
-
  //clase evento que tenga titulo, fecha, usuario admin, lista de invitados
+
+ /*
+Clase Evento que tenga titulo, fecha, usuario admin, lista de invitados
+*/
+
+
+
+/*
+Aula con alumnos y ordenadores
+*/
