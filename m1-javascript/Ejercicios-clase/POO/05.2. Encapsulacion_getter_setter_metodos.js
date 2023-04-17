@@ -1,33 +1,31 @@
 
-//Ejempo de clase con metodos encapsulados utilizndo getter and setter
-//
-class Persona {
-  
+//- Ejempo de clase con metodos encapsulados utilizando getter and setter
+//  cuando un metodo publico se hace grande es mejor desglosarlo en 
+//  metodos manejables, esos metodos mas pequeños pueden ser privados 
+//  para que no se accedadn de forma directa.
 
-    constructor(nombre, edad){
-        this.nombre = nombre;
-        this.#edad = edad;
-    }
+class Ecommerce {
 
-    //metodo publico
-    enviarProductos(){
-        //comprobar si eel envio es gratis
-        let esAptoPorUbicacion = this.#comprobarUbicacion();
-        let esAptoPorPrecioTotal1 = this.#comprobarPrecioTotal
-    }
     
-
-    //metodo privado
-    #comprobarUbicacion(){
-
+    enviarProductos(){ //metodo publico que se va ha desglosar
+        //comprobar si el envio es gratis
+        let esAptoPorUbicacion = this.#comprobarUbicacion(); //metodos pequeños privados
+        let esAptoPorPrecioTotal = this.#comprobarPrecioTotal();
     }
 
-    #comprobarPrecioLimite(){
-
+    #comprobarUbicacion(){ //metodo privado para que no accedan desde afuera, solo desde otro metodos de la misma clase
+        console.log("comprobar ubiciacion del cliente");
     }
+
+    #comprobarPrecioTotal(){
+        console.log("comprobar precio total del carrito de la compra");
+    }
+
 }
 
-let persona1 = new Persona("persona1",20);
-persona1.edad = 3; //asignacion directa, funciona si el atributo es publico
-persona1.edad =25;
-console.log(persona1.edad); // 3
+//creacion de objetos
+let tiendaDeBarrio = new Ecommerce();
+tiendaDeBarrio.enviarProductos();
+// tiendaDeBarrio.#comprobarPrecioTotal(); // Property '#comprobarPrecioTotal' is not accessible outside class 'Ecommerce' because it has a private identifier.
+
+
