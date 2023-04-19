@@ -1,5 +1,13 @@
 
-//Paso1 : crear una clase activity 
+/**
+ * CASO PRACTICO INDIVIDUAL
+ * 1.Crear clase tarea: constructor con atributos
+ * 2. Crear clase TareaService o TareaDatabase que es una clase con métodos para simular una base de datos, dentro tiene
+un array de Tareas
+ *
+ */
+
+// Paso1 : crear una clase activity
 class Activity{
     constructor(id, title, description, content, status, importance, date ){
         this.id = id;
@@ -8,14 +16,15 @@ class Activity{
         this.content = content;
         this.status = status;
         this.importance= importance;
-        this.date = date;
+        this.date = date; //campo tipo fecha Date
 
     }
 }
 
-// paso2: crear una clase con metodos para trabajar con objetos activity
+// Paso2: crear una clase con metodos para trabajar con objetos activity
 /* Crear una clase que represente un servicio de tareas que tenga como atributo una estructura de
    datos de tareas y métodos para gestionar las tareas:
+Operaciones CRUD:create, retrieve(recueprar), update, delete
 • Añadir una nueva tarea
 • Devolver todas las tareas (findAll)
 • Devolver todas las tareas filtrando por estado
@@ -25,40 +34,51 @@ class Activity{
 */
 
 // TagService
-
 class ActivityDatabase{
 
     constructor(){
+        //inicializar una base de datos
         this.activities = []; // this.activities : atributo   / [] -->estructura de datos //lista del array
+        
     }
-
+/**
+* Añade una nueva actividad en el array de actividades en consecuencia el array crece
+* Para cada nueva actividad que se quiere añadir, genera un nuevo id que esté libre
+* Para simular una base de datos, generamos un id (1, 2, 3, ...) único para cada Activity
+  con un bucle for o con la clase Math calcular el id más alto de todos los ids 
+* @param {*} activity objeto de la clase Activity
+* @returns devuelve la actividad con un nuevo id asignado
+*/
     addActivity(activity){
-        /*
-        Para simular una base de datos, generamos un id (1, 2, 3, ...) único para cada Activity
-        con un bucle for o con la clase Math calcular el id mas alto de los ids.
-        */
-       activity.id = this.#generateNextId2(); //  ----???
+       activity.id = this.#generateNextId2(); //// asigna el nuevo id calculado en el objeto activity antes de guardarlo en el array
        this.activities.push(activity);
        return activity;
     }
-
+    /**
+     * Primero calcula cuál es el id (int) más alto de todos los ids pertenecientes 
+     * a los objetos actividad del array activities. 
+     * Una vez que obtiene el id máximo en la variable maxId entonces lo incrementa porque esa será el siguiente nuevo id
+     * 
+     * Utiliza for y if 
+     * @returns 
+     */
     #generateNextId(){
         let maxId = 0;
-        for (const currentActivity of this.activities){
+        for (const currentActivity of this.activities){ //itera cada currentActivity
             if(currentActivity.id > maxId)
             maxId = currentActivity.id;
         }
-        return ++maxId;
+        return ++maxId; //operador incrmento ++ va la izquierda:primero asigna y luego hace el return(devuelve)
     }
 
     #generateNextId2(){
         if(this.activities.length === 0)
         return 1;
-        //utilizar el metodo map() para obtener un array de ids
+        //utilizar el metodo map() para obtener un array de ids -extraer el id de cada activity- obtengo un array de ids
         let ids = this.activities.map(activity => activity.id);
         console.log(ids);
         //obtener el id maximo utilizando Math.max()
-        let maxId = Math.max(...ids);
+        let maxId = Math.max(...ids); // se utiliza el operador..para desglosar
         return ++maxId;
 
     }
@@ -98,7 +118,12 @@ class ActivityDatabase{
 
 //Paso3: crear objetos y probar los metodos CRUD para simular una base de datos
 
+//-----------CREAR OBJETo BASE DE DATOS-----------------
 let activityDatabase = new ActivityDatabase();
+//es un objeto que tiene na base de datos
+
+
+//-----------CREAR OBJETOS ACTIVITY-----------------
 let reunionTrabajo = new Activity(
     undefined,  //id
     "Reunion Javascript", // title
