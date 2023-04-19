@@ -35,6 +35,16 @@ Abrir Preferences User Settings (JSON)
 }
 
 
+
+POWERSHELL
+Get-ExecutionPolicy
+Restricted
+Set-ExecutionPolicy Unrestricted
+S
+Get-ExecutionPolicy
+Unrestircted
+EXIT
+en visual comprobar y escrivbir es opcional: ng serve
 */
 
-console.log("hola mundo");
+console.log("hola mundooo");
