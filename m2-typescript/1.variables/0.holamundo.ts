@@ -1,30 +1,37 @@
 
 /*
-npm init -y
+REQUISITOS:
+Windows Powershell como Administrador:
+get-ExecutionPolicy -list 
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+
+OPCIÓN 1:
 
 npm install -g typescript
 tsc --version
 npm install -g ts-node
 
-Abrir prefrences User Settings (Json)
+Abrir Preferences User Settings (JSON)
+
 "code-runner.executorMap": {
-  "typescript": "ts-node"
+    "typescript": "ts-node"
 }
 
-Windows Powershell como administrador
-get-ExecutionPolicy -list
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-OPCION2
+OPCIÓN 2: si ts-node sale como comando no reconocido
+
+En visual Studio code por la terminal:
+
 npm install -g typescript
 npm install --save-dev ts-node
 
 crear .gitignore y añadir dentro: node_modules
-abrir Preferences User Settings (JSON)
+
+Abrir Preferences User Settings (JSON)
 
 "code-runner.executorMap": {
-  "typescript": "./node_modules/.bin/ts-node"
-
+    "typescript": "./node_modules/.bin/ts-node"
 }
 
 
