@@ -47,4 +47,28 @@ EXIT
 en visual comprobar y escrivbir es opcional: ng serve
 */
 
-console.log("hola mundooo");
+
+
+
+console.log("Hola Annie");
+
+enum Color {
+    Red,
+    Green,
+    Blue
+  }
+  let favoriteColor: Color = Color.Red;
+  console.log(favoriteColor);
+  
+let person: object = {
+    name: 'Jhon Doe',
+    age:30
+}
+
+let unknownType: any = 'Some value';
+
+console.log(unknownType);
+
+
+
+
