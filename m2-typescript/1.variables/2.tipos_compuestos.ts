@@ -23,7 +23,7 @@ console.log(cuentaBancarial1);
 console.log(cuentaBancarial2);
 console.log(cuentaBancarial3);
 
-//object 
+//object
 
 
 
