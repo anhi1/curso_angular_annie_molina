@@ -3,11 +3,10 @@
 REQUISITOS:
 Windows Powershell como Administrador:
 get-ExecutionPolicy -list 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser (terminal en visual)
 
 
 OPCIÓN 1:
-
 npm install -g typescript
 tsc --version
 npm install -g ts-node
@@ -36,7 +35,7 @@ Abrir Preferences User Settings (JSON)
 
 
 
-POWERSHELL
+POWERSHELL(de mi ordenador)
 Get-ExecutionPolicy
 Restricted
 Set-ExecutionPolicy Unrestricted
@@ -47,27 +46,27 @@ EXIT
 en visual comprobar y escrivbir es opcional: ng serve
 */
 
+import { log } from "console";
 
 
 
-console.log("Hola Annie");
 
-enum Color {
-    Red,
-    Green,
-    Blue
-  }
-  let favoriteColor: Color = Color.Red;
-  console.log(favoriteColor);
-  
-let person: object = {
-    name: 'Jhon Doe',
-    age:30
-}
+console.log("Hola Mundooooo");
 
-let unknownType: any = 'Some value';
+let esValido = true;
 
-console.log(unknownType);
+let nothing:null = null;
+nothing = null;
+console.log(nothing);
+
+let cualquiercosa:any = 5;
+cualquiercosa = "otra cosa"
+
+console.log(cualquiercosa);
+
+
+
+ 
 
 
 
