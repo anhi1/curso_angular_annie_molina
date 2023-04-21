@@ -46,7 +46,7 @@ EXIT
 en visual comprobar y escrivbir es opcional: ng serve
 */
 
-import { log } from "console";
+
 
 
 
