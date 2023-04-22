@@ -41,6 +41,8 @@ class ActivityDatabase {
 
     constructor() {
         this.activities = []; // inicializar la base de datos
+        //this.activities --> atitbuto 
+        // [] --> estuctura de datos
     }
 
     /**
@@ -155,13 +157,15 @@ class ActivityDatabase {
 
     update2(activity) {
 
-        let activityIndex = this.activities.findIndex( //buscamos la posicion de objeto, para encontrarlo
+        let activityIndex = this.activities.findIndex( //sacar indice - buscamos la posicion de objeto, para encontrarlo
             currentActivity => currentActivity.id === activity.id
         );
         if (activityIndex === -1)
             return undefined;
 
-        let updatedAct = {...this.activities[activityIndex] , ...activity};// el ...activity remplaza a ...this.activities[activityIndex]
+        let updatedAct = {...this.activities[activityIndex] , ...activity};
+        // el ...activity remplaza a ...this.activities[activityIndex]
+        // this.activities[activityIndex] --> accede al elemento del array
 
         this.activities[activityIndex] = updatedAct;
     }
@@ -208,12 +212,12 @@ class ActivityDatabase {
 
 let reunionTrabajo = new Activity(undefined, "Reunión JavaScript", "tratar caso práctico", "En progreso","Media", new Date("2023-04-18"));
 let running = new Activity(
-    undefined,
-    "Entrenamiento cardiovascular",
-    "Correr 5 KM", 
-    "Pendiente",
-    "Normal",
-    new Date("2023-04-15")
+    undefined,   //id
+    "Entrenamiento cardiovascular", //title
+    "Correr 5 KM",   //content
+    "Pendiente",    //status
+    "Normal",       //importance
+    new Date("2023-04-15")  //date
 );
 let gym = new Activity(
     undefined,
@@ -241,7 +245,7 @@ console.log(gym.id);
 
 
  // ======================================= BUSCAR UNO: filterById ==============================
-/*
+
 console.log(activityDatabase.filterById(1));
 console.log(activityDatabase.filterById(999));
 
@@ -251,7 +255,7 @@ console.log(activityDatabase.filterById(999));
 
  console.log(activityDatabase.filterByStatus("Pendiente"));
  console.log(activityDatabase.filterByStatus("No existe"));
-*/
+
 
 
  // ======================================= BUSCAR POR TITULO: filterByTitle ==============================
@@ -260,7 +264,7 @@ console.log(activityDatabase.filterById(999));
  console.log(activityDatabase.filterByTitle("No existe"));
 
 
- /*
+ 
  // ======================================= ACTUALIZAR: upate ==============================
 
 console.log(activityDatabase.filterById(1));
@@ -275,8 +279,8 @@ let act999 = new Activity(975, "modificado", undefined, "rechazado", undefined, 
 console.log(activityDatabase.update(act999)); // undefined
 
  // ======================================= ACTUALIZAR: upate2 ==============================
-let original1 = activityDatabase.filterById(1);
-let act1 = new Activity(1, "PRUEBA UPDATE2", original1.content, "STATUS UPDATE2", "IMPORTANCE UPDATE2", new Date("2028-01-01"));
+let original1 = activityDatabase.filterById(1); //buscar el activity id 1
+let act1 = new Activity(1, "PRUEBA UPDATE2", original1.content, "STATUS UPDATE2", "IMPORTANCE UPDATE2", new Date("2028-01-01"));//original1.content --> mantiene el dato original
 activityDatabase.update2(act1); // actualiza en base de datos
 
 let act2 = {
@@ -297,4 +301,3 @@ activityDatabase.deleteAll(); // borra todo
 console.log(activityDatabase.count()); // 0 (0)
 
 
-*/
