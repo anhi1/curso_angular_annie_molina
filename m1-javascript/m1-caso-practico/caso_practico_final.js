@@ -65,6 +65,21 @@ class TareaDatabase{
         return tarea; // te deuelve la tarea actualiza con los datos modificados
         
     }
+
+    count(){
+        return this.tareas.length;
+    }
+
+    deleteById(id){
+        let posicionId = this.tareas.findIndex(tarea => tarea.id ===id);
+        if (posicionId === -1)
+        return;
+        this.tareas.splice(posicionId,1)
+    }
+
+    deleteAll(){
+        this.tareas = [];
+    }
     
 }
 
@@ -111,3 +126,8 @@ let modificado = new Tarea(1,"Area de limpieza", undefined, undefined, undefined
 tareaDatabase.update(modificado)
 console.log(tareaDatabase.filterById(1));
 
+
+//--------- DeleteById-----------
+console.log(tareaDatabase.count());        // numero de tareas: 3
+console.log(tareaDatabase.deleteById(2));  // elimina una tarea 
+console.log(tareaDatabase.count());        // total de tareas: 2
