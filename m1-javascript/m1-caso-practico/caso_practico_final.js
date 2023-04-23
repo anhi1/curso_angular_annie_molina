@@ -1,10 +1,10 @@
 //
 class Tarea {
-    constructor(id, title, description, state, priority, date){
+    constructor(id, title, description, status, priority, date){
         this.id = id;
         this.title = title;
         this.description = description;
-        this.state = state;
+        this.status = status;
         this.priority = priority;
         this.date = date;
     }
@@ -35,6 +35,36 @@ class TareaDatabase{
     findAll(){
         return this.tareas;
     }
+
+    filterById(id){
+        let resultsId = this.tareas.filter(tarea => tarea.id === id);
+        if(resultsId.length === 1)
+        return resultsId[0];
+    }
+
+    filterByStatus(status){
+        return this.tareas.filter(tarea => tarea.status === status);
+    }
+
+    filterByPriority(priority){
+        return this.tareas.filter(tarea => tarea.priority === priority);
+    }
+
+    update(tarea){
+        let tareaIndex = this.tareas.findIndex(currentTarea => currentTarea.id === tarea.id);
+        if (tareaIndex === -1)
+            return undefined;
+
+        this.tareas[tareaIndex].title = tarea.title;// Modifica
+        /*
+        this.tareas[tareaIndex].description = tarea.description;
+        this.tareas[tareaIndex].status = tarea.status;
+        this.tareas[tareaIndex].priority = tarea.priority;
+        this.tareas[tareaIndex].date = tarea.date;
+        */
+        return tarea; // te deuelve la tarea actualiza con los datos modificados
+        
+    }
     
 }
 
@@ -42,7 +72,7 @@ class TareaDatabase{
 
 let tareaDatabase = new TareaDatabase();
 
-//----------Instanciar objetos Tarea ---------(id, title, description, state, priority, date)//
+//----------Instanciar objetos Tarea ---------(id, title, description, status, priority, date)//
 
 let limpiar = new Tarea(1,"Limpieza", "limpiador", "pendiente", "importante", new Date("2023-05-15"));
 
@@ -52,7 +82,6 @@ let atencionCliente = new Tarea(3,"Atencion", "servicioclientela", "pendiente", 
 
 
 //-------------- addTarea  ------
-
 limpiar = tareaDatabase.addTarea(limpiar);
 console.log(limpiar);
 
@@ -67,4 +96,18 @@ console.log(atencionCliente);
 let allTareas = tareaDatabase.findAll();
 console.log(allTareas); 
 
+
+//------------ filterByStatus() --------------
+console.log(tareaDatabase.filterByStatus("pendiente"));
+
+
+//------------- filterByPriority() ----------
+ console.log(tareaDatabase.filterByPriority("importante"));
+
+
+//------------ Update -----------------
+console.log(tareaDatabase.filterById(1));
+let modificado = new Tarea(1,"Area de limpieza", undefined, undefined, undefined, undefined)
+tareaDatabase.update(modificado)
+console.log(tareaDatabase.filterById(1));
 
