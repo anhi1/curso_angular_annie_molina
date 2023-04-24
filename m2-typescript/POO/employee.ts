@@ -1,4 +1,4 @@
-// craera class Employee CON ATRIBUTO: id, firstName, salary, company
+// crear class Employee CON ATRIBUTO: id, firstName, salary, company
 
 class Employee{
     //atributos
