@@ -28,3 +28,8 @@ const company1 = new Company(1,'73646744', 'DESARROLLOS COSMICOS SL', 500000, 25
 console.log(company1.getFullName());
 console.log(company1.getNetIconme());
 console.log(company1.outcome);
+
+company1.legalName = "OTRA EMPRESA SL"; //CAMBIAMOS EL NOMBRE
+console.log(company1.legalName);
+
+
