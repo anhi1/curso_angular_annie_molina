@@ -1,41 +1,73 @@
 //crear objetos
-
+// Many To Many: ICategory tiene un array de IFilm, IFilm tiene un array de ICategory
 import { ICategory } from "./category.model";
 import { IFilm } from "./film.model";
 
 let comedia:ICategory ={
     id: 1,
-    fullName: "Comedia española",
-    color: "verde",
-    minAge: 7
+    fullName: "Comedia Española",
+    color: "amarillo",
+    minAge: 7,
+    films: [] // Many To Many
 }
 
-let drama:ICategory ={
+let drama: ICategory = {
     id: 2,
-    fullName: "Drama", // columna
-    color: "rojo", // columna
-    minAge: 12
+    fullName: "Drama",
+    color: "Rojo",
+    minAge: 12,
+    films: []
 }
-let titani: IFilm ={
-    id:1,
+
+let accion: ICategory = {
+    id: 3,
+    fullName: "Accion",
+    color: "Amarillo",
+    minAge: 16,
+    films: []
+}
+
+// Unidireccional
+// Normalmente hacemos la asociación en el modelo más importante para nuestra aplicación
+
+let titanic: IFilm ={
+    id: 1,
     title: "titanic",
-    minutes:120,
-    rating:9.9,
-    year:1997,
-    categories:[comedia, drama] //Many
+    minutes: 120,
+    rating: 9.9,
+    year: 1997,
+    categories: [comedia, drama] // Many
 }
-let aTodoGas:IFilm ={
+
+let aTodoGas: IFilm = {
     id: 2,
     title: "A todo Gas 1",
-    minutes: 120,
-    rating: 9.0,
+    minutes: 140,
+    rating: 8.9,
     year: 2002,
-    categories: [comedia, accion]
+    categories: [comedia, accion] // Many
 }
 
 //Bidireccional (opcional)
-comedia.films =[]
-comedia.films?.push(aTodoGas);
+//comedia.films?.push(aTodosGas);
+//console.log(comedia);
+
+//comedia.films =[]
 
 
+// Opción 1: intentar insertar directamente. No deja porque el atributo es opcional
+// comedia.films.push(titanic);
+
+//Opcion 2:comprobar el atributo opcional antes de insertar con un if
+if(comedia.films!== undefined)
+comedia.films.push(titanic);
+console.log(comedia);
+
+
+//Opcion 3: comprobar el atributo opcional ? antes de la accion
+comedia.films?.push(titanic);
+console.log(comedia);
+
+
+   
 

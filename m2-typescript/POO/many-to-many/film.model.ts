@@ -6,6 +6,6 @@ export interface IFilm {
     minutes:number,
     rating: number,
     year:number,
-    categories:ICategory[] // sin corchetes significa que tiene una categoria
+    categories?:ICategory[] // sin corchetes significa que tiene una categoria
 }
 
