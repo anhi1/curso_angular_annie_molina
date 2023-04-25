@@ -53,16 +53,6 @@ en visual comprobar y escrivbir es opcional: ng serve
 
 console.log("Hola Mundooooo");
 
-let esValido = true;
-
-let nothing:null = null;
-nothing = null;
-console.log(nothing);
-
-let cualquiercosa:any = 5;
-cualquiercosa = "otra cosa"
-
-console.log(cualquiercosa);
 
 
 
