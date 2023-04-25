@@ -7,5 +7,5 @@ export interface IProduct {
     title:string,
     price:number,
     quantity:number, // cantidad de productos : stock
-    supermarket: ISupermarket //Many to one
+    supermarket?: ISupermarket //Many to one
 }
