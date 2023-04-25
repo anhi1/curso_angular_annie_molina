@@ -1,5 +1,6 @@
-//CREAR CLASE
-// La palabra export permite que se puedad
+// CREAR CLASE
+// La palabra export permite que se pueda utilizar
+// la clase desde otros archivos
 export class Laptop {
 
     constructor(private id: number,

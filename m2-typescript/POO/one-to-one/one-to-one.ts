@@ -30,28 +30,26 @@ let user1: IUser ={
 
 console.log(`usuario ${user1.email} vive en ${user1.address.city} de ${user1.address.country}`);
 
+
+
 //el usuario se cambia de casa
 user1.address = address2;
 
 console.log(`usuario ${user1.email} vive en ${user1.address.city} de ${user1.address.country}`);
 
 
-//creau un objeto dentro del otro objeto
-let user2:IUser = {
+// Crear objeto address y user a la vez en la propia creación del usuario
+let user2: IUser={
     id: 2,
     email: "correo@gmail.com",
-    birthday: new Date(1993,1,2),
+    birthday: new Date,
     phone: "65454332",
-    // address:address2
-    address:{ // crear un objeto address
-        id: 3,
-        street: "calle canillas",
+    address:{
+        id:2,
+        street:"otra calle",
         postalCode: "28002",
         city: "Madrid",
         country: "España"
-    }
+    } 
 }
-
-console.log(`usuario ${user2.email} vive en ${user2.address.city} de ${user2.address.country}`);
-
-
+console.log(`${user2.email} vive en ${user2.address.city}`);

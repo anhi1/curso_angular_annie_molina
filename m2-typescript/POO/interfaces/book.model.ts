@@ -1,9 +1,19 @@
 /*
 -crear interface sin metodos, solo atributos
-- si queremos objetos "modelos de datos" que implennbte tiene atributos
-MVC - modelo vista controlador
+Si queremos crear objetos "modelos de datos" que simplemente tienen atributos por ejemplo
+para leer / traer / consumir datos de un API REST o una URL podemos utilizar interfaces
+para declarar esos atributos y crear objetos a partir de esas interfaces de forma sencilla
+
+Luego los métodos y comportamiento se podrían separar a otra clase por ejemplo BookService
+
+De esta forma tendríamos:
+
+* IBook: Modelo de datos (interface)
+* BookService: Servicio con lógica de negocio (métodos, comportamiento) sobre objetos libros
+
+MVC - Modelo Vista Controlador
 */
-//
+
 interface IBook{
     id:number;
     title:string;

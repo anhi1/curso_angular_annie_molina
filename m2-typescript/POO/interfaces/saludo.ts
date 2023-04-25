@@ -4,15 +4,18 @@ interface
 implements
 
 */
-interface ISaludo{ //puedo poner atributos o metosdos
-    //declarar metodos
+interface ISaludo{ //puedo poner atributos o metodos
+    //Declarar metodos (las acciones que se pueden hacer)
+    //esto es una interfaz comun
     saludar(): string;
     despedirse(firstName:string): string;
 }
 
-class SaludoFormal implements ISaludo{ // implementa una interfaz
+
+//CREAR clases implemenando una interfaz: ambas hacen lo mismo pero de distintas maneras
+class SaludoFormal implements ISaludo{
     saludar(): string {
-        return "Estimados, nuenos dias";
+        return "Estimados, buenos dias";
     }
     despedirse(firstName: string): string {
         return `Hasta la proxima ${firstName}`;
@@ -28,10 +31,9 @@ class SaludoInformal implements ISaludo{
     }   
 }
 
-//Crear objeto
-
-let saludo1: ISaludo = new SaludoFormal();
-let saludo2: ISaludo = new SaludoInformal();
-
+//crear objeto
+let saludo1:ISaludo = new SaludoFormal(); // es de tipo Isaludo
+let saludo2:ISaludo = new SaludoInformal();
 console.log(saludo1.saludar());
 console.log(saludo2.saludar());
+
