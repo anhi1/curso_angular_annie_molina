@@ -1,8 +1,10 @@
 
+
+//Opcion 1:con una interfaz
 export interface IEvent{ // es contrato comun que me permite crear implementaciones
     id:number;
     title:string;
-    year:number;
+    fecha:Date;
     priority:string;
     description:string
 }
