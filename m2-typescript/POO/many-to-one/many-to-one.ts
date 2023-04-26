@@ -76,9 +76,7 @@ for (const product of alimerka.products){
     product.supermarket = alimerka;   ////????? como comprobar
     console.log(product.supermarket);
 }
- 
- 
-    
+
 //forEach
 alimerka.products.forEach(product => product.supermarket = alimerka);
 alimerka.products.forEach(product => console.log(product.supermarket));
@@ -88,10 +86,6 @@ alimerka.products.forEach(product => console.log(product.supermarket));
 let prices = alimerka.products.map(product => product.price)
 console.log(prices);
 
-
-
-   
-    
     
     
     

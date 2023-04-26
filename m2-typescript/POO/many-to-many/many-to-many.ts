@@ -49,11 +49,13 @@ let aTodoGas: IFilm = {
 }
 
 //Bidireccional (opcional)
-//comedia.films?.push(aTodosGas);
-//console.log(comedia);
+comedia.films?.push(aTodoGas);
+console.log(comedia);
 
 //comedia.films =[]
 
+
+/*
 
 // Opción 1: intentar insertar directamente. No deja porque el atributo es opcional
 // comedia.films.push(titanic);
@@ -68,6 +70,4 @@ console.log(comedia);
 comedia.films?.push(titanic);
 console.log(comedia);
 
-
-   
-
+*/
