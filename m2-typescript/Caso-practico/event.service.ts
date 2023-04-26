@@ -8,7 +8,8 @@ Opcional: convertir EventService en una interfaz y hacer dos clases que la imple
 clase a las operaciones
 */
 export class EventService {
-    events:Array<IEvent> = [];
+    private events:Array<IEvent> = [];
+    
 
     //metodos
     public findAll():Array<IEvent> { 
