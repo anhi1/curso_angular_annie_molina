@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./hola1.component.css']
 })
 export class Hola1Component {
-  title = 'Mi primer componente en Angular';
-
+  title = 'POR FIN SALIO';
 }
