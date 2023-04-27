@@ -9,7 +9,7 @@ console.log(eventservice.findAll());
 
 //creando un objeto
 let evento1: IEvent ={
-    id: -1,
+    id: 1,
     title: "Evento 1 largo de 4 días",
     priority: "BAJA",
     fecha: new Date(),

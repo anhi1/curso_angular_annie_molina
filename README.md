@@ -61,7 +61,7 @@ ng serve  (inicia la aplicacion)
 
 Para empezar a crear cosas:
 
-ng generate help  (tengo que entrar a mi proyecto con cd proyecto1)
+ng generate help  (tengo que entrar a mi proyecto)
 
 ng generate component product-list
 
