@@ -73,7 +73,7 @@ export class EventService{
             currentEvent => currentEvent.id === event.id // le pasamos un predicado (una funcion)/ no puedo poner evento porque ya existe ponemos currentEvent
         );
 
-        if (position === -1) // si no existe el elemnto te lanza un error
+        if (position === -1) // si no existe el elemento te lanza un error
             throw new Error("404 not found");
 
         if (this.isValid(event))
@@ -87,15 +87,19 @@ export class EventService{
     
 
     save(event:IEvent): IEvent{ // devuelve el evento que he guardado // el id se genera automaticamente con el metod save ???
-        if(event.id! ==-1) // si el evento no exite que me lance error
+        if(event.id  !==-1) // si el evento no exite que me lance error
         throw new Error("Para crear un nuevo evento no se añade un Id"); //throw palabra reservada
 
         if(!this.isValid(event)) // si el evento es incorrecto entonces no se guarda
         throw new Error('Datos incorrectos');
 
         event.id = this.generateNextId(); //this.generateNextId() asignarle con el id de evento
+        this.events.push(event);
         return event;
     
-    }   
+    }
+    
+
 }
+
 
