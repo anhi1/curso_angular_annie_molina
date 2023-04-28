@@ -14,13 +14,18 @@ export class EventService{
     //METODOS
     //devuelve todos los eventos
     findAll():Array<IEvent>{
-        return new Array(...this.events); // devolver una copia del array event
+    return new Array(...this.events); // devolver una copia del array event
     }
+
+    //getAllevento(evento:IEvent){
+    //    return this.events;
+    //}
+    
 
 
     //devuelve un tipo de objeto id
     //selec * from eventos where id = 2 o id=3...
-    findById(id:number): IEvent | undefined { // el tipo de retorno puede ser IEvent o undefined
+    findById(id:number): IEvent | undefined { //el tipo de retorno puede ser IEvent o undefined
         return this.events.find(evento => evento.id === id); // find devuelve un objeto //find recibe un predicado es decir una funcion
     //si el elemnto no existe es decir el id(132) , se pone undefined 
     }
@@ -35,7 +40,7 @@ export class EventService{
 
     private generateNextId(): number {
         let maxId = 0;
-        for (const event of this.events) {
+        for (const event of this.events){
             if (event.id > maxId)
                 maxId = event.id;
         }
