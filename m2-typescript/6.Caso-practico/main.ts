@@ -25,7 +25,7 @@ let evento2: IEvent ={
 }
 
 console.log(eventservice.save(evento1));
-//console.log(eventservice.save(evento2));
+console.log(eventservice.save(evento2));
 console.log(eventservice.findAll());
 
 
