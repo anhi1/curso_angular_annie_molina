@@ -89,6 +89,20 @@ export class EventService{
         this.events[position].description = event.description;
         return event;
     }
+
+    public deleteById(id: number): boolean {
+        let position = this.events.findIndex(
+            currentEvent => currentEvent.id === id
+        );
+
+        if (position === -1)
+            throw new Error("404 not found");
+
+        // length === 0 quiere decir que no se ha borrado nada: false
+        // length === 1 quiere decir que se ha borrado un objeto: true
+        // length > 1 quiere decir que se ha más de un objeto: false
+        return this.events.splice(position, 1).length === 1;  
+    }
     
 
     save(event:IEvent): IEvent{ // devuelve el evento que he guardado // el id se genera automaticamente con el metod save
