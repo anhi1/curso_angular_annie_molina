@@ -6,19 +6,30 @@ export class MovieDatabase {
 
   //METODOS
 
-  /*
-  insert(id:number):number[] {
-    this.movies.splice(movieIndex, 1);
-    return [];
-  }
-  */
 
   public findById(id:number): IMovie | undefined {
     return this.movies.find(movie => movie.id === id);
   }
 
+  public filterById(id:number):Array<IMovie>{
+    return this.movies.filter(movie => movie.id === id);
+  }
+  /*
+  
+  
+   filterById(id){
+        let resultsId = this.tareas.filter(tarea => tarea.id === id);
+        if(resultsId.length === 1)
+        return resultsId[0];
+    }
+  */
+
   public findAll(): Array<IMovie> {
     return new Array(...this.movies); // devolver una copia del array events
+  }
+
+  public findAllByActor(director:string): Array<IMovie>{
+    return this.movies.filter(movie => movie.director === director);
   }
 
   private generateNextId(): number {
@@ -44,9 +55,7 @@ export class MovieDatabase {
     return true;
   }
 
-  public filterByActor(director:string): Array<IMovie>{
-    return this.movies.filter(movie => movie.director === director);
-  }
+  
   public update(movie: IMovie): IMovie {
     if (!movie.id) throw new Error("El id tiene que ser valido");
 
@@ -57,9 +66,9 @@ export class MovieDatabase {
       // si no existe el elemento te lanza un error
       throw new Error("No existe el elemento");
 
-    if (this.isValid(movie)) this.movies[position].title = movie.title;
-    this.movies[position].director = movie.director;
-    this.movies[position].duration = movie.duration;
+    if (this.isValid(movie))
+    this.movies[position].title = movie.title;
+    this.movies[position].genres = movie.genres;
     return movie;
   }
 
@@ -75,6 +84,18 @@ export class MovieDatabase {
 
   public deleteAll(movie: IMovie): Array<IMovie> {
     return (this.movies = []);
+  }
+
+  public save(movie:IMovie):IMovie{
+    if(movie.id !== -1)// el movie no existe
+        throw new Error('para crear un nuevo evento no se añade un id');
+    if(! this.isValid(movie))
+      throw new Error("Datos incorrectos");
+      
+    movie.id = this.generateNextId();
+    this.movies.push(movie);
+    return movie;
+    
   }
 
 

@@ -106,7 +106,7 @@ export class EventService{
     
 
     save(event:IEvent): IEvent{ // devuelve el evento que he guardado // el id se genera automaticamente con el metod save
-        if(event.id  !==-1) //  el evento no exite 
+        if(event.id  !== -1) //  el evento no exite 
         throw new Error("Para crear un nuevo evento no se añade un Id"); //throw palabra reservada //que me lance error(es decir no puedo poner id 1  o 2 o 3...)
 
         if(!this.isValid(event)) // si el evento es incorrecto entonces no se guarda
