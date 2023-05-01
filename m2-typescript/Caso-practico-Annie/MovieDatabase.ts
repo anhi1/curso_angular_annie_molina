@@ -14,15 +14,7 @@ export class MovieDatabase {
   public filterById(id:number):Array<IMovie>{
     return this.movies.filter(movie => movie.id === id);
   }
-  /*
-  
-  
-   filterById(id){
-        let resultsId = this.tareas.filter(tarea => tarea.id === id);
-        if(resultsId.length === 1)
-        return resultsId[0];
-    }
-  */
+
 
   public findAll(): Array<IMovie> {
     return new Array(...this.movies); // devolver una copia del array events
@@ -38,6 +30,11 @@ export class MovieDatabase {
       if (movie.id > maxId) maxId = movie.id;
     }
     return ++maxId;
+  }
+
+  public insert(id:number): Array<IMovie>{
+    let position = this.movies.findIndex(currentMovie => currentMovie.id === id);
+    return this.movies.splice(position,1);
   }
 
   private isValid(movie: IMovie): boolean {

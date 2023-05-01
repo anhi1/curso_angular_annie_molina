@@ -34,9 +34,15 @@ let movie3 : IMovie ={
     rate:7
 }
 
-//------------findAll()-------------
-
-console.log(movieDatabase.findAll());// vacio []
+let movie4:IMovie ={
+    id: -1,
+    title: "tiltulo4",
+    year: 2020,
+    director: "director4",
+    duration: 150,
+    genres: ['accion'],
+    rate: 6
+}
 
 //--------- save() ------------------
 
@@ -55,6 +61,7 @@ console.log(actor);
 
 
 //---------- update --------------
+
 console.log(movieDatabase.filterById(1));
 let pelicula1:IMovie = {
     id: 1,
@@ -70,6 +77,8 @@ console.log(modificado);
 console.log(movieDatabase.findAll());
 
 
-//------------ delete --------
+//------------ deleteById --------
 
+movieDatabase.deleteById(3)
+console.log(movieDatabase.findAll());
 
