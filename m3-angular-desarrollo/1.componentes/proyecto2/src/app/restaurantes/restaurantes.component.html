@@ -1,0 +1,11 @@
+
+<!--esto me indica si es verdadero-->
+<div *ngIf="restaurante1.abierto">
+  <p>Nombre: {{restaurante1.nombre}}</p>
+  <p>calle: {{restaurante1.calle}}</p>
+</div>
+
+<!--esto me indica si es falso-->
+<div *ngIf="!restaurante1.abierto">
+  <p>No hay restaurantes abierto</p>
+</div>
