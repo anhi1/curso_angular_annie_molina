@@ -6,6 +6,7 @@ import { Ejemplo1Component } from './ejemplo1/ejemplo1.component';
 import { Ejemplo2Component } from './ejemplo2/ejemplo2.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
+import { ContadorComponent } from './contador/contador.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     Ejemplo1Component,
     Ejemplo2Component,
     RestaurantesComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    ContadorComponent
   ],
   imports: [
     BrowserModule
