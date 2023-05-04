@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TasksModule } from './tasks/tasks.module';
+import { UserModule } from './user/user.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -10,7 +11,8 @@ import { TasksModule } from './tasks/tasks.module';
   ],
   imports: [
     BrowserModule,
-    TasksModule
+    TasksModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
