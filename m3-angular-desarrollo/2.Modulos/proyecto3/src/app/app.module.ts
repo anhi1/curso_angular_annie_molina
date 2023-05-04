@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TasksModule } from './tasks/tasks.module';
-
 @NgModule({
   declarations: [
     AppComponent,
