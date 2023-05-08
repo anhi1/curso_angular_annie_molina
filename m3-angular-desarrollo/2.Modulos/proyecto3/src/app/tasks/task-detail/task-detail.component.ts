@@ -7,9 +7,11 @@ import { ITask } from '../task.model';
 })
 export class TaskDetailComponent {
   //hay un solo objeto
+  fontColor: string ='red';
+  idSize: string = "17px";
   task: ITask = {
     id: 1,
-    title: 'modulos con angualar',
+    title: 'modulos con angular',
     hours: 5
   }
 }

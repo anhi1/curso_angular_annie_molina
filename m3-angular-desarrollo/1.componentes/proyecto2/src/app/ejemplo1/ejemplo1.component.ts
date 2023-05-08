@@ -19,6 +19,17 @@ export class Ejemplo1Component {
   product1:IProduct={
     id: 1,
     title: 'ordenador portatil MSI Modern',
-    price: 1500.0
+    price: 99.0
   }
+
+  checkPrice(): string {
+    if (this.product1.price <= 50)
+      return "green";
+    else if (this.product1.price <= 100)
+      return "red";
+    else
+      return "blue";
+    //  <= 50 devuelve green
+    // > 50 y < 100 devuelve blue
+    // >=100 devuelve red
 }

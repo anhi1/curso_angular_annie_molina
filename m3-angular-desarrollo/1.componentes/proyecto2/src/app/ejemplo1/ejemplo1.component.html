@@ -11,7 +11,7 @@
 <p>
 ID: {{product1.id}} <br>
 Titulo: {{product1.title}} <br>
-Precio: {{product1.price}} <br>
-</p>
+<p [ngClass]="product1.price >=100? 'red':'green'">Precio: {{product1.price}}</p>
+<p [ngClass]="checkPrice()" >Precio: {{product1.price}}</p>
 
 
