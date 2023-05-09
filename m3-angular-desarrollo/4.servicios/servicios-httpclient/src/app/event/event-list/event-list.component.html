@@ -1,1 +1,9 @@
-<p>event-list works!</p>
+
+<h2>Listado de eventos todos</h2>
+<ul>
+  <li *ngFor="let event of events">
+    <span [ngClass]="event.completed ?'completed': 'uncompleted'">
+    {{event.id}} {{event.userId}}{{event.title}} {{event.completed}}
+    </span>
+  </li>
+</ul>

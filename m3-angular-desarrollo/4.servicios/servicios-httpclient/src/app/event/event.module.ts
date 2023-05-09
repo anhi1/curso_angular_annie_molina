@@ -4,14 +4,17 @@ import { EventListComponent } from './event-list/event-list.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 
 
-
 @NgModule({
   declarations: [
     EventListComponent,
     EventDetailComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+  ],
+  exports:[
+    EventListComponent,
+    EventDetailComponent
   ]
 })
 export class EventModule { }
