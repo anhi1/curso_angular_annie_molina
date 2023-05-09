@@ -9,12 +9,24 @@ import { IUser } from '../user.model';
 })
 export class UserDetailComponent {
 
+  //datos
+  users: IUser[]=[]; //guardar -estructura de datos
+  user: IUser | undefined; //busacando un usuario por email
 
+  //inputs [(ngModel)] - variables
   userEmail:string= "";
-  users: IUser[]=[]
+  searchEmail:string="";
+  searched:boolean = false;
 
-  constructor(private userService: UserService){
-    this.users = this.userService.findAll();
+
+
+  constructor(private userService: UserService){}
+  //METODOS
+  //probar la interracion con un servicio
+  findByEmail(): void{
+    this.user = this.userService.findByEmail(this.searchEmail)//llamar al service
+    this.searchEmail = ""; //resetea el email para no estar borrando
+    this.searched = true;
   }
 
   save() {
@@ -26,4 +38,5 @@ export class UserDetailComponent {
     this.userEmail="";
     this.users = this.userService.findAll();
   }
+
 }
