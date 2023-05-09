@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EventService {
-  url:string ="https://jsonplaceholder.typicode.com/todos";
+  url:string ="https://jsonplaceholder.typicode.com/todos"; //esto es una url
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient) { }  //para sacar datos de una url usamos el httpClient y lo importamos en el app.module.ts y en service
 
   findAll(): Observable<any> { // Observable<HttpResponse>
-    return this.httpClient.get(this.url);
+    return this.httpClient.get(this.url); //get trae los datos
   }
 
   findById(id: number):Observable<any>{ //any lee cualquier objeto
