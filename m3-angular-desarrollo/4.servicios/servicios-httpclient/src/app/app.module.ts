@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http'
 import { EventModule } from './event/event.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +13,8 @@ import { EventModule } from './event/event.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    EventModule
+    EventModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

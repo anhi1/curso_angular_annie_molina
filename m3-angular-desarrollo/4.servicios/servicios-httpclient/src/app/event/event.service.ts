@@ -31,6 +31,10 @@ export class EventService {
     return this.httpClient.get<IEvent[]>(`${this.url}?completed=false`)
   }
 
+  //crear un nuevo objeto
+  create(event :IEvent):Observable<IEvent>{
+   return this.httpClient.post<IEvent>(this.url, event); //mandar esto al servidor con el post
+  }
 
   //findAllByCompletedFalse()
   //save
