@@ -3,3 +3,7 @@
 <input type="text" [(ngModel)]="title"/>
 <button (click)="create()">Crear event</button>
 
+
+<div *ngIf="createdEvent">
+  se ha creado correctamente {{createdEvent.id}}
+</div>

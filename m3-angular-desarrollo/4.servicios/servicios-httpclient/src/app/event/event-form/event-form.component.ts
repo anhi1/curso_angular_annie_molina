@@ -10,6 +10,7 @@ import { IEvent } from '../event.model';
 export class EventFormComponent {
 
   title:string="";
+  createdEvent:IEvent | undefined;
 
   constructor(private eventService:EventService){}
 
@@ -22,6 +23,8 @@ export class EventFormComponent {
     }
 
     //llamar al servicio
-    this.eventService.create(event).subscribe(data => console.log(data));
+    this.eventService.create(event).subscribe(data => this.createdEvent = data);
+    this.title="";
   }
+
 }
