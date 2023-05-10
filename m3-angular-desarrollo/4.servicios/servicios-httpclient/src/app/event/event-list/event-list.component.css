@@ -5,3 +5,13 @@
 .uncompleted{
   color: red
 }
+
+.btn{
+  border-radius: 8px;
+  border: none;
+  background-color: rgb(134, 118, 255);
+  padding: 4px 7px;
+  margin: 4px;
+  color: rgb(253, 254, 254);
+}
+
