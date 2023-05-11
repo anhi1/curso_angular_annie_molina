@@ -9,7 +9,7 @@ import { IUser } from '../user.model';
 })
 export class UserListComponent implements OnInit{
 
-  users: IUser[]=[]
+  users: IUser[]=[];
 
   constructor(private userService:UserService){}
 
@@ -19,10 +19,7 @@ export class UserListComponent implements OnInit{
       console.log(data.status);
       console.log(data.body);
       this.users = data.body ?? [];
-
     });
-
-
   }
 
 
