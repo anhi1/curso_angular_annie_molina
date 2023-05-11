@@ -36,6 +36,16 @@ export class EventService {
    return this.httpClient.post<IEvent>(this.url, event); //mandar esto al servidor con el post
   }
 
+  update(event:IEvent):Observable<IEvent>{
+    return this.httpClient.put<IEvent>(`${this.url}/${event.id}`, event);
+  }
+
+  deleteById(id:number):void{
+    this.httpClient.delete(`${this.url}/${id}`);
+  }
+
+
+
   //findAllByCompletedFalse()
   //save
   //update
