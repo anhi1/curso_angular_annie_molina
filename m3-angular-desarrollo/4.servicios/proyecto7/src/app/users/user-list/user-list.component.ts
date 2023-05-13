@@ -17,7 +17,7 @@ export class UserListComponent {
       console.log(data);
       console.log(data.status);
       console.log(data.body);
-      this.users = data.body ?? [];
+      this.users = data.body ?? []; //asignar los datos de usuarios proporcionados por la API a la propiedad users
     });
   }
 }
