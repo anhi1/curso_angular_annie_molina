@@ -24,10 +24,10 @@ export class UserService {
 
 
 /*
-  
 
-  'response': Esto te dará acceso completo al objeto HttpResponse, 
-      que incluye tanto el cuerpo de la respuesta como metadatos adicionales, 
+
+  'response': Esto te dará acceso completo al objeto HttpResponse,
+      que incluye tanto el cuerpo de la respuesta como metadatos adicionales,
       como el estado de la respuesta y los headers
 
     observe: tiene por defecto valor 'body' para traer solo los datos
