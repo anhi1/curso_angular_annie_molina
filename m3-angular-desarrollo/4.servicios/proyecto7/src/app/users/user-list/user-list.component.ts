@@ -31,7 +31,7 @@ export class UserListComponent {
     */
     //opcion 4
     this.userService.findAll().subscribe({
-      next: (data: HttpResponse<IUser[]>) => {
+      next: (data: HttpResponse<IUser[]>) => { //es un tipo de dato = HttpResponse<IUser[]>
         console.log(data.status);
         this.users = data.body ?? [];
       },
