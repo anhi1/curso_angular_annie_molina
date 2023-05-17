@@ -22,4 +22,5 @@ export class PhotoService {
     return this.httpClient.get<IPhoto>(`${this.url}/${id}`);
   }
 
+  
 }
