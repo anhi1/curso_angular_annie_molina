@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
 import { PhotoFormComponent } from './photo-form/photo-form.component';
-
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +16,8 @@ import { PhotoFormComponent } from './photo-form/photo-form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
