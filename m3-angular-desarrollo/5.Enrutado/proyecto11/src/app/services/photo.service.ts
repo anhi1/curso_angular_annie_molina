@@ -8,7 +8,7 @@ import { IPhoto } from '../models/photo.model';
 })
 export class PhotoService {
 
-  url: string = "https://jsonplaceholder.typicode.com/todos"
+  url: string = "https://jsonplaceholder.typicode.com/photos"
   //httpClient
   constructor(private httpClient: HttpClient) { }
 

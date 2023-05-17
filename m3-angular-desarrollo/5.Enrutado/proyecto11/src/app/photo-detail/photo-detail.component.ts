@@ -10,14 +10,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PhotoDetailComponent implements OnInit {
   photo: IPhoto | undefined;
-  constructor(private route:ActivatedRoute,
-              private photoService:PhotoService){}
+  constructor(private route: ActivatedRoute,
+              private photoService: PhotoService){}
 
 
 
   ngOnInit(): void {
   this.route.params.subscribe(params =>{ //el subscribe lee el id de la url
-    const id = parseInt(params['id'],10);
+    const id = parseInt(params['id'], 10);
     this.photoService.findById(id).subscribe(data => this.photo = data);
   });
   }

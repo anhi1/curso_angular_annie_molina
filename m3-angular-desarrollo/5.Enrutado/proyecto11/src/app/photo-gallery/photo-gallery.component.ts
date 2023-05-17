@@ -16,6 +16,7 @@ export class PhotoGalleryComponent implements OnInit {
 
   ngOnInit(): void {
     this.photoService.findAll().subscribe(data => {
+      //this.photo = data;
       this.photos = data.slice(0, 10);
     });
 
