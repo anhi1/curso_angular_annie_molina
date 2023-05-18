@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserListComponent } from './user-list.component';
+import { UserDirComponent } from './user-dir.component';
 
-describe('UserListComponent', () => {
-  let component: UserListComponent;
-  let fixture: ComponentFixture<UserListComponent>;
+describe('UserDirComponent', () => {
+  let component: UserDirComponent;
+  let fixture: ComponentFixture<UserDirComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UserListComponent]
+      declarations: [UserDirComponent]
     });
-    fixture = TestBed.createComponent(UserListComponent);
+    fixture = TestBed.createComponent(UserDirComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

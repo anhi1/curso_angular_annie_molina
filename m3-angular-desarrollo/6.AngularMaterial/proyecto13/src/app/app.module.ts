@@ -6,16 +6,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserListComponent } from './user-list/user-list.component';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import { UserDirComponent } from './user-dir/user-dir.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent
+    UserListComponent,
+    UserDirComponent,
+    UserDetailComponent,
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
