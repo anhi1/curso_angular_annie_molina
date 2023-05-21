@@ -11,8 +11,8 @@ export class UserDetailComponent {
 
       fullName: "patty",
       email: "paty@gmail.com",
-      bio: "bio",
-      avatar: ;
+      bio: "Lorem ipsum dolor asit amet ipsum The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agipes very whunting.",
+      avatar: "/assets/img/user-avatar3.png"
 };
 
 

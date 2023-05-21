@@ -18,7 +18,7 @@ export class UserDirComponent {
         fullName:"usuario2",
         email:"usuario2@gmail.com",
         bio:"lorem ipsum dolor",
-        avatar:"/assets/img/user-avatar2.png"
+        avatar:"/assets/img/user-avatar3.png"
       },
       {
         fullName:"usuario3",
