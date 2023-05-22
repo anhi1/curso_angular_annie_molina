@@ -7,7 +7,7 @@ import { IUser } from '../user.model';
   styleUrls: ['./user-table.component.css']
 })
 export class UserTableComponent {
-  displayedColumns: string[]=['actions','fullName', 'email', 'avatar'];
+  displayedColumns: string[]=['avatar','fullName','email','actions' ];
   users: IUser[] = [
     {
       fullName:"Annie Molina",
@@ -16,19 +16,35 @@ export class UserTableComponent {
       avatar:"https://ui-avatars.com/api/?name=Annie+Molina"
     },
     {
-      fullName:"usuario2",
+      fullName:"Betty",
       email:"usuario2@gmail.com",
       bio:"lorem ipsum dolor",
       avatar:"/assets/img/user-avatar3.png"
     },
     {
-      fullName:"usuario3",
+      fullName:"Carolina",
       email:"usuario3@gmail.com",
       bio:"lorem ipsum",
       avatar:"/assets/img/user-avatar1.png"
     },
 ];
 
+//constructor(private router:Router);
+view(user: IUser):void{
+    console.log(user);
+
+}
+edit(user:IUser):void{
+  console.log(user);
+
+}
+deleteUser(user: IUser): void{
+  console.log(user);
+
+}
+create():void{}
+
+deleteAll():void{}
 
 }
 

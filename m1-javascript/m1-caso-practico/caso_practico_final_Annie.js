@@ -1,4 +1,4 @@
-//
+
 class Tarea {
     constructor(id, title, description, status, priority, date){
         this.id = id;
