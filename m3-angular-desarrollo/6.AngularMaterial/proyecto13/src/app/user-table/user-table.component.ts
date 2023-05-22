@@ -7,7 +7,7 @@ import { IUser } from '../user.model';
   styleUrls: ['./user-table.component.css']
 })
 export class UserTableComponent {
-  displayedColumns: string[]=['FullName', 'email', 'avatar'];
+  displayedColumns: string[]=['actions','fullName', 'email', 'avatar'];
   users: IUser[] = [
     {
       fullName:"Annie Molina",
