@@ -6,7 +6,9 @@ table img
 
 button
 {
-  margin-right:8px
+  margin:17px;
+  max-width: 200px;
+
 }
 table{
   margin-top:8px;
