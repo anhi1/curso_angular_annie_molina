@@ -9,12 +9,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import { UserDirComponent } from './user-dir/user-dir.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { PeriodicElementsComponent } from './periodic-elements/periodic-elements.component';
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     UserDirComponent,
     UserDetailComponent,
+    PeriodicElementsComponent,
 
   ],
   imports: [
