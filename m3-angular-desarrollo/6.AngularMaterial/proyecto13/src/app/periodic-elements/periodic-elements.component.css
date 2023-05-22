@@ -1,0 +1,5 @@
+.table-wrapper{
+  display: flex;
+  max-width: 200px;
+  margin: auto;
+}

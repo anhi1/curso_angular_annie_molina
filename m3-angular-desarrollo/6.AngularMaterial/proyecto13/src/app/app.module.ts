@@ -10,6 +10,8 @@ import {MatCardModule} from '@angular/material/card';
 import { UserDirComponent } from './user-dir/user-dir.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { PeriodicElementsComponent } from './periodic-elements/periodic-elements.component';
+import { MatTableModule } from '@angular/material/table';
+import { UserTableComponent } from './user-table/user-table.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +19,8 @@ import { PeriodicElementsComponent } from './periodic-elements/periodic-elements
     UserDirComponent,
     UserDetailComponent,
     PeriodicElementsComponent,
+    UserTableComponent,
+
 
   ],
   imports: [
@@ -24,7 +28,8 @@ import { PeriodicElementsComponent } from './periodic-elements/periodic-elements
     BrowserAnimationsModule,
     MatListModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
