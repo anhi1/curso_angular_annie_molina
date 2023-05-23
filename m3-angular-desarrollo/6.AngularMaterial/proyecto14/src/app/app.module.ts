@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { CommentDetailComponent } from './comment-detail/comment-detail.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';

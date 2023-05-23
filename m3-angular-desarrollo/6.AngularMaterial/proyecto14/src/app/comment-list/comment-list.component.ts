@@ -9,17 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./comment-list.component.css']
 })
 export class CommentListComponent implements OnInit{
-  displayColumns =['id','postId', 'name','email', 'actions'];
-  comments:IComment[]=[];
+  
+  displayedColumns: string[] = ['id', 'name','email', 'actions'];
+  comments: IComment[] = [];
 
   constructor(private commentService:CommentService,
               private router: Router){}
 
   ngOnInit(): void {
-    this.commentService.findAll().subscribe(data => this.comments=data);
+    this.commentService.findAll().subscribe(data => this.comments = data);
   }
 
-  view(comment:IComment){
+  view(comment: IComment){
     this.router.navigate(['/comments',comment.id]);
   }
 

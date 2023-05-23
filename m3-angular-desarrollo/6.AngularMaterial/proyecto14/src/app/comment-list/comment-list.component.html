@@ -1,4 +1,4 @@
-<h2>Listado de opiniones</h2>
+<h2>Listado de comentarios</h2>
 
 
 
@@ -24,15 +24,15 @@
   <!--acciones-->
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef="">Acciones</th>
-    <td mat-cell *matCellDef="let user">
-      <button mat-fab extended color="silver" class="btn-primary" (click)="view(comment)">
+    <td mat-cell *matCellDef="let comment">
+      <button mat-fab extended color="primary" class="btn-primary" (click)="view(comment)">
         <mat-icon>visibility</mat-icon>
         Ver
       </button>
-
-
     </td>
   </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
 </table>
