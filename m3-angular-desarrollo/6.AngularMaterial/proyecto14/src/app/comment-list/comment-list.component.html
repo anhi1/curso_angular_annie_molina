@@ -1,1 +1,38 @@
-<p>comment-list works!</p>
+<h2>Listado de opiniones</h2>
+
+
+
+<table mat-table [dataSource]="comments" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let comment">{{comment.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef="">Nombre</th>
+    <td mat-cell *matCellDef="let comment">{{comment.name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef="">Email</th>
+    <td mat-cell *matCellDef="let comment">{{comment.email}}</td>
+  </ng-container>
+
+
+
+  <!--acciones-->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef="">Acciones</th>
+    <td mat-cell *matCellDef="let user">
+      <button mat-fab extended color="silver" class="btn-primary" (click)="view(comment)">
+        <mat-icon>visibility</mat-icon>
+        Ver
+      </button>
+
+
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
