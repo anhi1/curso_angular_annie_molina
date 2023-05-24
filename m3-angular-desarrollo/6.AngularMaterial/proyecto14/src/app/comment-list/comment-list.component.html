@@ -25,10 +25,20 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef="">Acciones</th>
     <td mat-cell *matCellDef="let comment">
+      
+      <!--opcion1: llamar a un metodo ts-->
       <button mat-fab extended color="primary" class="btn-primary" (click)="view(comment)">
         <mat-icon>visibility</mat-icon>
         Ver
       </button>
+
+      <!--Opcion2: navegar directamente al componente-->
+      <button mat-fab extended color="primary" class="btn-primary"
+          [routerLink]="['/comments', comment.id]">
+        <mat-icon>visibility</mat-icon>
+        Ver
+      </button>
+
     </td>
   </ng-container>
 

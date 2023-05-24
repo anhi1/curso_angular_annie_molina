@@ -1,0 +1,13 @@
+.example-spacer{
+  flex:1 1 auto;
+}
+
+.logo
+{
+  max-width: 20px;
+}
+
+.navbar{
+  background-color: rgb(119, 119, 240);
+  color:aqua;
+}
