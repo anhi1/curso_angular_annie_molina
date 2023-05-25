@@ -20,5 +20,69 @@
     <input type="number" id="salary" formControlName="salary" step="0.01" min="0">
   </div>
 
+  <div>
+    <label for="isStudent">Es estudiante?</label>
+    <input type="checkbox" id="isStudent" formControlName="isStudent">
+  </div>
+
+  <div>
+    <label for="entryHour">Hora de entrada:</label>
+    <input type="time" id="entryHour" formControlName="entryHour">
+  </div>
+
+  <div>
+    <label for="bookingDate">Fecha de reserva:</label>
+    <input type="datetime-local" id="bookingDate" formControlName="bookingDate">
+  </div>
+
+  <div>
+    <label for="jobCategory">Departamento/categoria:</label>
+    <div>
+      <label for="desarrollo">Desarrollo</label>
+      <input type="radio" id="desarrollo" value="desarrollo" formControlName="jobCategory">
+
+      <label for="marketing">Marketing</label>
+      <input type="radio" id="desarrollo" value="marketing" formControlName="jobCategory">
+
+      <label for="blockchain">Blockchain</label>
+      <input type="radio" id="blockchain" value="blockchain" formControlName="jobCategory">
+    </div>
+  </div>
+
+  <div>
+    <label for="company">Empresa:</label>
+    <select id="company" formControlName="company">
+      <option value="">seleccionar empresa</option>
+      <option value="adecco">Adecco</option>
+      <option value="petgram">Petgram</option>
+      <option value="petgram">Yourhouse</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="hobbies">Intereses o hobbies:</label>
+    <select id="hobbies" formControlName="hobbies">
+      <option value="music">música</option>
+      <option value="sport">deporte</option>
+      <option value="nature">naturaleza</option>
+      <option value="tejer">tejer</option>
+      <option value="travel">viajar</option>
+    </select>
+    <small>hacer ctrl + click para sseleccionar varios</small>
+  </div>
+
+  <div>
+    <label for="bio">descripción:</label>
+    <textarea id="bio" formControlName="bio" cols="30" rows="5"></textarea>
+  </div>
+
+  <div>
+    <img  *ngIf="imageSrc" src="imageSrc">
+    <label for="avatar">foto de perfil o avatar:</label>
+    <input type="file" (change)="uploadFile($event)">
+
+  </div>
+
   <button type="submit">Guardar</button>
+
   </form>
