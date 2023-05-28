@@ -4,10 +4,27 @@
 
 .logo
 {
-  max-width: 20px;
+  max-width: 30px;
 }
 
 .navbar{
   background-color: rgb(119, 119, 240);
   color:aqua;
 }
+
+
+.example-icon:hover{
+  color: rgb(226, 217, 43);
+}
+
+img{
+filter: invert(44%) sepia(98%) saturate(2717%) hue-rotate(165deg) brightness(100%) contrast(101%);
+max-width: 40px;
+}
+
+img:hover{
+filter: invert(94%) sepia(14%) saturate(4477%) hue-rotate(324deg) brightness(107%) contrast(102%); ;
+}
+
+
+

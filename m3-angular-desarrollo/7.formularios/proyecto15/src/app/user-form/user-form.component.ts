@@ -4,7 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.css']
+  styleUrls: ['./user-form.component.css'],
 })
 export class UserFormComponent {
   userForm = new FormGroup({
@@ -16,16 +16,15 @@ export class UserFormComponent {
     birthday: new FormControl(''),
     entryHour: new FormControl(''),
     bookingDate: new FormControl(null),
-    jobCategory:new FormControl(null),
-    company:new FormControl(''), //nota: no poner null ni dejarlo sin string
+    jobCategory: new FormControl(null),
+    company: new FormControl(''), //nota: no poner null ni dejarlo sin string
     hobbies: new FormControl([]),
-    bio:new FormControl(''),
-    avatar:new FormControl(null)
-
+    bio: new FormControl(''),
+    avatar: new FormControl(null),
   });
 
   save(): void {
-    console.log(this.userForm.get('email')?.value);// ? que no sea nulo al objeto
+    console.log(this.userForm.get('email')?.value); // ? que no sea nulo al objeto
     console.log(this.userForm.get('fullName')?.value);
     console.log(this.userForm.get('age')?.value);
     console.log(this.userForm.get('isStudent')?.value);
@@ -44,15 +43,16 @@ export class UserFormComponent {
 
   imageSrc: string | undefined;
 
-  uploadFile(event: Event): void{
-  let target =  event.target as HTMLInputElement; //esta funcion coge el evento
-  if(target.files !== null && target.files.length > 0)
-    let fileImg = target.files[0];
+  uploadFile(event: Event): void {
+    let target = event.target as HTMLInputElement; //esta funcion coge el evento
 
-    //Mostrar la imagen del usuario
-    let reader = new FileReader();
-    reader.onload = ev => this.imageSrc = reader.result as string;// que hacer cuando se lea la imagen
-    reader.readAsDataURL(fileImg); //leer la imagen
+    if (target.files !== null && target.files.length > 0) {
+      let fileImg = target.files[0];
+
+      //Opcional: Mostrar la imagen del usuario
+      let reader = new FileReader();
+      reader.onload = (ev) => (this.imageSrc = reader.result as string); // que hacer cuando se lea la imagen
+      reader.readAsDataURL(fileImg); // leer la imagen
+    }
   }
-
 }

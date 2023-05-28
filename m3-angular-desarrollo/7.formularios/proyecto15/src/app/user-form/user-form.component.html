@@ -72,15 +72,14 @@
   </div>
 
   <div>
-    <label for="bio">descripción:</label>
-    <textarea id="bio" formControlName="bio" cols="30" rows="5"></textarea>
+    <label for="bio">descripción o biografia:</label>
+    <textarea id="bio" formControlName="bio" cols="4" rows="5"></textarea>
   </div>
 
   <div>
-    <img  *ngIf="imageSrc" src="imageSrc">
     <label for="avatar">foto de perfil o avatar:</label>
+    <img  *ngIf="imageSrc" src="{{imageSrc}}" style="max-width: 150px;">
     <input type="file" (change)="uploadFile($event)">
-
   </div>
 
   <button type="submit">Guardar</button>
