@@ -1,0 +1,44 @@
+<h1>formularion validation</h1>
+<form [formGroup]="userForm" (ngSubmit)="save()">
+
+
+<div>
+  <label for="fullName">Nombre <span style="color:red;">*</span></label>
+  <input type="text" id="fullName" formControlName="fullName">
+  <span *ngIf="userForm.get('fullName')?.invalid && userForm.get('fullName')?.touched">
+    Nombre obligatorio
+  </span>
+</div>
+
+<div>
+  <label for="email">Correo electronico <span style="color:red;">*</span></label>
+  <input type="email" id="email" formControlName="email">
+  <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+    <span *ngIf="userForm.get('email')?.getError('required')">
+      Email obligatorio
+    </span>
+    <span *ngIf="userForm.get('email')?.getError('email')">
+      formato incorrecto, ejemplo: hola@example.com
+    </span>
+  </div>
+
+  <div>
+    <label for="nickName">Nombre de usuario <span style="color:red;">*</span></label>
+    <input type="text" id="nickName" formControlName="nickName">
+    <div *ngIf="userForm.get('nickName')?.invalid && userForm.get('nickName')?.touched">
+      <span *ngIf="userForm.get('nickName')?.getError('required')">
+        nickName obligatorio
+      </span>
+      <span *ngIf="userForm.get('nickName')?.getError('minlength') ||
+                    userForm.get('nickName')?.getError('maxlength')">
+        Longitud comprendida entre 6 y 5 caracteres.
+      </span>
+    </div>
+  </div>
+
+
+
+
+</div>
+<button type="submit"[disabled]="userForm.invalid">Guardar</button>
+</form>
