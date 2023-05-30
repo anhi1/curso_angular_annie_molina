@@ -39,6 +39,7 @@ export class UserFormComponent {
 
 
   save(): void{
-
+    console.log(this.userForm.value); //obtener todo los valores
+    console.log(this.userForm.get('fullName'));
   }
 }
