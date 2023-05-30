@@ -2,7 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserFormComponent } from './user-form/user-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -10,7 +18,17 @@ import { UserFormComponent } from './user-form/user-form.component';
     UserFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

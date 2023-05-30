@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent {
+  userForm = new FormGroup({
+    fullName: new FormControl('', [Validators.required])
+  });
 
+  save(){
+
+  }
 }
