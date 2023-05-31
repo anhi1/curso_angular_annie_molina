@@ -15,20 +15,9 @@ export class BookService {
     return this.httpClient.get<IBook[]>(this.url); //get trae los datos
   }
 
-  findById(id: number):Observable<IBook>{ //any lee cualquier objeto
+  findById(id: number):Observable<IBook>{
     //https://jsonplaceholder.typicode.com/todos/4 o 1, 2, 3
     return this.httpClient.get<IBook>(`${this.url}/${id}`); //conn el get traemos la tarea 1 la traea 2...
-  }
-
-  //findAllByCompletedTrue()
-  //con 1 parametro: ?completed=true
-  //con 2 parametros: ?param1=value1&param2=value2
-  findAllByCompletedTrue():Observable<IBook[]>{
-    return this.httpClient.get<IBook[]>(`${this.url}?completed=true`)
-  }
-
-  findAllByCompletedFalse():Observable<IBook[]>{
-    return this.httpClient.get<IBook[]>(`${this.url}?completed=false`)
   }
 
   //crear un nuevo objeto

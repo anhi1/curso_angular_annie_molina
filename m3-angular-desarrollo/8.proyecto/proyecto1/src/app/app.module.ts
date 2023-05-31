@@ -13,6 +13,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { BooksModule } from './books/books.module';
+import {HttpClientModule} from '@angular/common/http'
+
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { BooksModule } from './books/books.module';
     MatIconModule,
     MatToolbarModule,
     MatGridListModule,
-    BooksModule
+    BooksModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,6 +14,7 @@ import { EventModule } from './event/event.module';
     BrowserModule,
     HttpClientModule,
     EventModule,
+    
 
   ],
   providers: [],
