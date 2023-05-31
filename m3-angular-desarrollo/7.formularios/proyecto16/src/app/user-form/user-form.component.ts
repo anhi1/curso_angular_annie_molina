@@ -18,11 +18,13 @@ export class UserFormComponent {
     {id: 2, name: "Company2"},
     {id: 3, name: "Company3"},
     {id: 4, name: "Company4"},
-
   ];
 
-
   hide = true;
+
+  minBirthday = new Date(1910, 0, 1);
+  maxBirthday = new Date(2005, 0, 1);
+
   userForm = new FormGroup({
     fullName: new FormControl('', [Validators.required]),
     bio: new FormControl('', [Validators.required, Validators.maxLength(256)]),
@@ -33,7 +35,15 @@ export class UserFormComponent {
     salary: new FormControl(null, [Validators.min(16500), Validators.max(100000)]),
     department: new FormControl('', [Validators.required]),
     company: new FormControl('', [Validators.required]),
-    hobbies: new FormControl([])
+    hobbies: new FormControl([]),
+    city: new FormControl(''),
+    postalCode: new FormControl('', [Validators.pattern('^[0-9]{5}$')]),
+    birthday: new FormControl(null),
+
+    jobStartDate: new FormControl(null),
+    jobEndDate: new FormControl(null)
+
+    
   });
 
 
