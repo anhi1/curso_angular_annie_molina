@@ -16,6 +16,10 @@ import {MatRadioModule} from '@angular/material/radio';
 
 import {MatSelectModule} from '@angular/material/select';
 
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+
 
 
 
@@ -37,11 +41,14 @@ import {MatSelectModule} from '@angular/material/select';
     MatRadioModule,
     MatSelectModule,
 
-
+    MatNativeDateModule,
+    MatDatepickerModule,
 
 
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue:'es-ES'} //es para cambiar idioma https://material.angular.io/components/datepicker/overview#setting-the-locale-code
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

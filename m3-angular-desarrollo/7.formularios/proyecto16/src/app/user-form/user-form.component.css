@@ -20,3 +20,9 @@ input.example-right-align::-webkit-inner-spin-button {
 input.example-right-align {
   -moz-appearance: textfield;
 }
+
+.formulario{
+  display:flex;
+  justify-content: center;
+  margin: 50px;
+}
