@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path:'photos',
-    loadChildren: ()=>import('./photos/photos.module').then(m=>m.PhotosModule)//lazy loading
+    loadChildren: ()=>import('./photos/photos.module').then(m=>m.PhotosModule) //lazy loading
   },
   {
     path:'users',

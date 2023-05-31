@@ -9,7 +9,7 @@ const routes: Routes = [
     component: PhotoGalleryComponent
   },
   {
-    path: 'photo-detail/:id',
+    path: 'photo-detail', //path: 'photo-detail/:id'
     component: PhotoDetailComponent
   },
   {
