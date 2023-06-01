@@ -6,28 +6,30 @@ import { BookListComponent } from './book-list/book-list.component';
 import { BookGalleryComponent } from './book-gallery/book-gallery.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookFormComponent } from './book-form/book-form.component';
-
-import {MatTableModule} from '@angular/material/table';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-
+import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { SharedModule } from "../shared/shared.module";
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 @NgModule({
-  declarations: [
-    BookListComponent,
-    BookGalleryComponent,
-    BookDetailComponent,
-    BookFormComponent
-  ],
-  imports: [
-    CommonModule,
-    BooksRoutingModule,
-    MatTableModule,
-    MatIconModule,
-    MatButtonModule
-
-
-  ]
+    declarations: [
+        BookListComponent,
+        BookGalleryComponent,
+        BookDetailComponent,
+        BookFormComponent
+    ],
+    imports: [
+        CommonModule,
+        BooksRoutingModule,
+        MatTableModule,
+        MatIconModule,
+        MatButtonModule,
+        SharedModule,
+        HttpClientModule,
+        MatGridListModule
+    ]
 })
 export class BooksModule { }

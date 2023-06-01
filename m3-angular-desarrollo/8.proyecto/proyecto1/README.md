@@ -31,3 +31,8 @@ ng generate component books/book-detail
 ng generate component books/book-form
 ng generate interface books/models/book --type=model --prefix=I
 ng generate service books/services/book
+
+
+module shared: quiere decir que 
+las cosas que esten en el  module 
+shared pueden ser utilizadas en otros modulos
