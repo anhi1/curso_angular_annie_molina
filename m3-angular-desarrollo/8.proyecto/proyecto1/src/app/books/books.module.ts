@@ -7,6 +7,11 @@ import { BookGalleryComponent } from './book-gallery/book-gallery.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookFormComponent } from './book-form/book-form.component';
 
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
@@ -17,7 +22,12 @@ import { BookFormComponent } from './book-form/book-form.component';
   ],
   imports: [
     CommonModule,
-    BooksRoutingModule
+    BooksRoutingModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule
+
+
   ]
 })
 export class BooksModule { }

@@ -8,13 +8,17 @@ import { IBook } from '../models/book.model';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit{
+  displayedColumns: string[] = ['title', 'sinopsis', 'numPages', 'price', 'actions'];
+  books: IBook[] =[];
 
   constructor(private bookService: BookService){}
-  books: IBook[] =[];
+
 
   ngOnInit(): void {
     this.bookService.findAll().subscribe(data =>this.books = data);
   }
+
+  deleteBook(book: IBook) {}
 
 
 }

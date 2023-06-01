@@ -16,7 +16,6 @@ import { BooksModule } from './books/books.module';
 import {HttpClientModule} from '@angular/common/http'
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +32,8 @@ import {HttpClientModule} from '@angular/common/http'
     MatToolbarModule,
     MatGridListModule,
     BooksModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

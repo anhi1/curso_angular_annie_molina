@@ -1,7 +1,6 @@
 <h2>Listado de comentarios</h2>
 
 
-
 <table mat-table [dataSource]="comments" class="mat-elevation-z8">
 
   <ng-container matColumnDef="id">
@@ -25,7 +24,7 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef="">Acciones</th>
     <td mat-cell *matCellDef="let comment">
-      
+
       <!--opcion1: llamar a un metodo ts-->
       <button mat-fab extended color="primary" class="btn-primary" (click)="view(comment)">
         <mat-icon>visibility</mat-icon>
