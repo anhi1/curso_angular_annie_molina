@@ -3,12 +3,12 @@
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
-    <a routerLink="/" title="Inicio">
+    <a routerLink="/" title="Inicio">  <!--"/" representa la ruta raíz de la aplicación.-->
       <img src="/assets/img/logo.svg" class="logo" alt="logo">
     </a>
     <span class="example-spacer"></span>
 
-    <button mat-button [matMenuTriggerFor]="menuBooks">Libros</button>
+    <button class="circulo" mat-button [matMenuTriggerFor]="menuBooks">Libros</button>
     <mat-menu #menuBooks="matMenu">
       <button mat-menu-item>Tabla libros</button>
       <button mat-menu-item>Galería libros</button>

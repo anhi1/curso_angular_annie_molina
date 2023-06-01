@@ -16,7 +16,7 @@ export class BookDetailComponent implements OnInit{
               private bookService: BookService){}
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params =>{
-      const id = parseInt(params['id'], 10);
+      const id = parseInt(params['id'], 10); // 10 representa la base numérica 
       this.bookService.findById(id).subscribe(data => this.book= data);
     });
   }

@@ -7,7 +7,7 @@ import { BookListComponent } from './book-list/book-list.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: '',  // La ruta vacía , (una cadena vacía), significa que esa ruta coincide con la URL raíz del sitio o la URL base de la aplicación.
     component: BookListComponent
   },
   {
