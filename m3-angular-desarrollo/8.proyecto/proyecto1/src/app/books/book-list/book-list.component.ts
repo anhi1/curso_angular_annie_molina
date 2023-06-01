@@ -8,7 +8,7 @@ import { IBook } from '../models/book.model';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit{
-  displayedColumns: string[] = ['title', 'sinopsis', 'numPages', 'price', 'actions'];
+  displayedColumns: string[] = ['title', 'sinopsis', 'release', 'numPages', 'price', 'actions'];
   books: IBook[] =[];
 
   constructor(private bookService: BookService){}

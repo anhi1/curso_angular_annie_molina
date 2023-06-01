@@ -12,8 +12,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from "../shared/shared.module";
 import { MatGridListModule } from '@angular/material/grid-list';
-
-
 @NgModule({
     declarations: [
         BookListComponent,
@@ -24,11 +22,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
     imports: [
         CommonModule,
         BooksRoutingModule,
+        HttpClientModule,
         MatTableModule,
         MatIconModule,
         MatButtonModule,
         SharedModule,
-        HttpClientModule,
         MatGridListModule
     ]
 })
