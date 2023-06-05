@@ -17,6 +17,16 @@
     <mat-hint align="end">{{message.value.length}} / 1000</mat-hint>
   </mat-form-field>
 
+  <mat-form-field floatLabel="always">
+    <mat-label>Precio</mat-label>
+    <input matInput type="number" class="example-right-align" placeholder="0" formControlName="price">
+    <span matTextPrefix>&euro;&nbsp;</span>
+    <span matTextSuffix>.00</span>
+    <mat-error *ngIf="bookForm.get('price')?.invalid && bookForm.get('price')?.touched">
+      El salario debe estar comprendido en un rango de 5 y 500 €.
+    </mat-error>
+  </mat-form-field>
+
   <button mat-fab extended type="submit"
         [disabled]="bookForm.invalid">
     <mat-icon>send</mat-icon>

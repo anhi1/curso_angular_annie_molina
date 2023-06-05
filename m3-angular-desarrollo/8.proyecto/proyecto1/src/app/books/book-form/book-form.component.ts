@@ -13,9 +13,11 @@ export class BookFormComponent {
   bookForm = new FormGroup({
     title: new FormControl('', [Validators.required,Validators.minLength(5),Validators.maxLength(100),]),
     sinopsis: new FormControl('', [Validators.maxLength(1000)]),
+    numPages: new FormControl(0, [Validators.required, Validators.min(30)]),
+    price: new FormControl(0, [Validators.required,Validators.min(5),Validators.max(500),]),
+
     //release: new FormControl(null, [Validators.required]),
-    //numPages: new FormControl(0, [Validators.required, Validators.min(30)]),
-    //price: new FormControl(0, [Validators.required,Validators.min(5),Validators.max(500),]),
+    
   });
 
   constructor(private bookService: BookService, private router: Router){}
