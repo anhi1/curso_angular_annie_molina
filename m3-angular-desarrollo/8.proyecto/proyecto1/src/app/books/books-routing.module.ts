@@ -11,16 +11,16 @@ const routes: Routes = [
     component: BookListComponent
   },
   {
-    path: ':id',
-    component: BookDetailComponent
-  },
-  {
     path: 'gallery',
     component: BookGalleryComponent
   },
   {
     path: 'new',
     component: BookFormComponent
+  },
+  {
+    path: ':id',
+    component: BookDetailComponent
   },
   {
     path: ':id/edit',

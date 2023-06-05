@@ -11,7 +11,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from "../shared/shared.module";
+import { MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker'
 import { MatGridListModule } from '@angular/material/grid-list';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
     declarations: [
         BookListComponent,
@@ -27,7 +32,13 @@ import { MatGridListModule } from '@angular/material/grid-list';
         MatIconModule,
         MatButtonModule,
         SharedModule,
-        MatGridListModule
+        MatGridListModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        ReactiveFormsModule,
+        MatInputModule
+
     ]
 })
 export class BooksModule { }
