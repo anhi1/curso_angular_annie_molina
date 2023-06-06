@@ -49,7 +49,7 @@
   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
-<!----------- Sleciona el autor   -------->
+<!----------- Selecciona el autor   -------->
 <mat-form-field>
   <mat-label>Selecciona el autor/a del libro</mat-label>
   <mat-select formControlName="authorId" name="authorId">
@@ -63,6 +63,15 @@
   </mat-error>
 </mat-form-field>
 
+<!----------- genero o categorias   -------->
+<mat-form-field>
+  <mat-label>genero o categorias</mat-label>
+  <mat-select formControlName="categories" multiple>
+    <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option>
+  </mat-select>
+  <mat-hint>Puedes seleccionar mas de una categoria</mat-hint>
+</mat-form-field>
+
  <!----------- Boton enviar   -------->
   <button mat-fab extended type="submit"
         [disabled]="bookForm.invalid">
@@ -71,4 +80,3 @@
   </button>
 </form>
 
-<!-- json-server -watch db.json -->

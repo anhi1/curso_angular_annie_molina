@@ -1,8 +1,11 @@
-<mat-grid-list cols="3" rowHeight="125px" *ngIf="book">
+
+<mat-grid-list cols="3" rowHeight="150px" *ngIf="book">
+
+  <!--------------- Portada y author (2 filas)   ----------------->
   <mat-grid-tile rowspan="2">
     <div>
       <h2>Portada</h2>
-      <img src="{{ book.photo }}" style="max-width: 100%" />
+      <img src="{{ book.photo }}" style="max-width: 100px;"/>
 
       <mat-list *ngIf="author">
         <mat-list-item>
@@ -18,16 +21,19 @@
     </div>
   </mat-grid-tile>
 
+  <!--------------- titulo - release - numpages -  sinopsis-  (2 filas)   ----------------->
+
   <mat-grid-tile rowspan="2">
     <div>
       <h2>Libro {{ book.title }}</h2>
       <p>Fecha lanzamiento: {{ book.release | date : "dd/MM/YYYY" }}</p>
       <p>Número páginas: {{ book.numPages }}</p>
-
       <h2>Sinopsis</h2>
       <p>{{ book.sinopsis }}</p>
     </div>
   </mat-grid-tile>
+
+  <!--------------- price - botoncomprar  (2 filas)   ----------------->
 
   <mat-grid-tile rowspan="2">
     <div>
@@ -45,6 +51,8 @@
     </div>
   </mat-grid-tile>
 
+  <!--------------- price - botoncomprar  (1 fila y 3 colum)   ----------------->
+
   <mat-grid-tile colspan="3" rowspan="1">
     <div>
       <p>
@@ -53,4 +61,5 @@
       </p>
     </div>
   </mat-grid-tile>
+
 </mat-grid-list>

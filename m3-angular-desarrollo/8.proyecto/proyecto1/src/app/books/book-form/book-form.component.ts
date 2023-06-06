@@ -24,9 +24,9 @@ export class BookFormComponent implements OnInit {
     price: new FormControl(0, [
       Validators.required, Validators.min(5), Validators.max(500), Validators.pattern("^[0-9]+([.,][0-9]{1,2})?$")
     ]),
-    release: new FormControl(new Date()),
+    release: new FormControl(new Date()), // <date>
     authorId: new FormControl(0, [Validators.required]),
-    categories: new FormControl([])
+    categories: new FormControl<number[]>([])
   });
 
   //ARRAYS
@@ -52,12 +52,12 @@ export class BookFormComponent implements OnInit {
       });
   
       this.authorService.findAll().subscribe(data => this.authors = data);
-      this.categoryService.findAll().subscribe(data => this.categories = data)
+      this.categoryService.findAll().subscribe(data => this.categories = data); // esto guarda y los carga
     }
 
     loadBookForm(book: IBook): void {
 
-      this.bookForm.reset({
+      this.bookForm.reset({  //cargar los fiormularios y podemosr editar
         id: book.id,
         title: book.title,
         sinopsis: book.sinopsis,
@@ -69,6 +69,7 @@ export class BookFormComponent implements OnInit {
       });
     }
   
+    //extraer los datos del formulario para guardar en el backend
     save(): void {
       let id = this.bookForm.get('id')?.value ?? 0;
       let title = this.bookForm.get('title')?.value ?? '';

@@ -32,7 +32,14 @@ ng generate component books/book-form
 ng generate interface books/models/book --type=model --prefix=I
 ng generate service books/services/book
 
+ng generate module shared
+ng generate pipe shared/LimitLongText
+Importar SharedModule en BookModule
 
-module shared: quiere decir que 
-las cosas que esten en el  module 
-shared pueden ser utilizadas en otros modulos
+ng generate module authors --routing --module app.module
+ng generate interface authors/models/author --type=model --prefix=I
+ng generate service authors/services/author
+
+ng generate module categories --routing --module app.module
+ng generate interface categories/models/category --type=model --prefix=I
+ng generate service categories/services/category
