@@ -7,4 +7,5 @@ export interface IBook {
   photo: string;
   price: number;
   authorId: number;
+  categories: number[];
 }

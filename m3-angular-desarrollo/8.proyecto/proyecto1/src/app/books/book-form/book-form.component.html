@@ -42,13 +42,26 @@
   </mat-form-field>
 
 <!----------- Fecha de publicacion   -------->
-    <mat-form-field>
-      <mat-label>Fecha publicación</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="release">
-      <mat-hint>DD/MM/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+<mat-form-field>
+  <mat-label>Fecha publicación</mat-label>
+  <input matInput [matDatepicker]="picker" formControlName="release">
+  <mat-hint>DD/MM/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<!----------- Sleciona el autor   -------->
+<mat-form-field>
+  <mat-label>Selecciona el autor/a del libro</mat-label>
+  <mat-select formControlName="authorId" name="authorId">
+    <mat-option>Ninguna</mat-option>
+    <mat-option *ngFor="let author of authors" [value]="author.id">
+      {{author.fullName}}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="bookForm.get('authorId')?.invalid && bookForm.get('authorId')?.touched">
+    Es obligatorio seleccionar un autor.
+  </mat-error>
+</mat-form-field>
 
  <!----------- Boton enviar   -------->
   <button mat-fab extended type="submit"
@@ -57,3 +70,5 @@
       Enviar
   </button>
 </form>
+
+<!-- json-server -watch db.json -->

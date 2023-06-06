@@ -18,7 +18,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
-
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -42,7 +42,8 @@ import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
         MatDatepickerModule,
         ReactiveFormsModule,
         MatInputModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatListModule
 
     ],
     providers:[
