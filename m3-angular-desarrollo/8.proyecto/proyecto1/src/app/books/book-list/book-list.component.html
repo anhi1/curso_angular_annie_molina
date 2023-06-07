@@ -6,6 +6,17 @@
 Crear libro
 </button>
 
+<!----------------chisps avatar---------->
+<mat-chip-listbox aria-label="Dog selection">
+<a  *ngFor= "let author of authors" [routerLink]="['/books/author', author.id]">            <!-- [routerLink] si va con texto-->
+  <mat-chip-option color="primary">
+    <img matChipAvatar [src]="author.photo" [alt]="author.fullName"/> 
+    {{author.fullName}}
+  </mat-chip-option>
+</a>
+</mat-chip-listbox>
+
+<!--------------------tabla-------------->
 <table mat-table [dataSource]="books" class="mat-elevation-z8">
 
   <ng-container matColumnDef="title">
@@ -59,3 +70,7 @@ Crear libro
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
 </table>
+
+<div *ngIf="books.length === 0" style= "text-align:center;" >
+no se han encontrado viviendas
+</div>

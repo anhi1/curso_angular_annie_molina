@@ -27,6 +27,10 @@ const routes: Routes = [
     component: BookFormComponent
   },
   {
+    path: 'author/:authorId',    // avatarchips
+    component: BookListComponent
+  },
+  {
     path: '**', redirectTo: '', pathMatch: 'full'
   }
 ];

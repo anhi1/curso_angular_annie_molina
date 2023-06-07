@@ -42,6 +42,7 @@ export class BookFormComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
+      //book/3/edit
       this.activatedRoute.params.subscribe(params => {
         const idString = params['id'];
         if (!idString) return;
@@ -57,7 +58,7 @@ export class BookFormComponent implements OnInit {
 
     loadBookForm(book: IBook): void {
 
-      this.bookForm.reset({  //cargar los fiormularios y podemosr editar
+      this.bookForm.reset({  //cargar los datos del formularios y podemosr editar
         id: book.id,
         title: book.title,
         sinopsis: book.sinopsis,

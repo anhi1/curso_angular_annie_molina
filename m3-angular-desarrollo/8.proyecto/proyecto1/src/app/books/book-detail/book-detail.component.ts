@@ -21,13 +21,15 @@ export class BookDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) => {
-      const id = parseInt(params['id'], 10); // 10 representa la base numérica
-      this.bookService.findById(id).subscribe((data) => {
+    this.activatedRoute.params.subscribe(params => {
+      const id = parseInt(params['id'], 10);
+
+      this.bookService.findById(id).subscribe(data => {
         this.book = data;
         if (!(this.book.authorId > 0)) return;
-        this.authorService.findById(this.book.authorId).subscribe((data) => (this.author = data));
+        this.authorService.findById(this.book.authorId).subscribe(data => this.author = data)
       });
+
     });
   }
 }

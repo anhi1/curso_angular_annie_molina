@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IBook } from '../models/book.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,6 +14,11 @@ export class BookService {
   findAll(): Observable<IBook[]> { // Observable<HttpResponse>
     return this.httpClient.get<IBook[]>(this.url); //get trae los datos
   }
+
+  findAllByAuthorId(authorId:number): Observable<IBook[]>{
+    return this.httpClient.get<IBook[]>(`${this.url}?authorId=${authorId}`);
+  }
+  
 
   findById(id: number):Observable<IBook>{
     //https://jsonplaceholder.typicode.com/todos/4 o 1, 2, 3
@@ -29,7 +34,17 @@ export class BookService {
     return this.httpClient.put<IBook>(`${this.url}/${book.id}`, book);
   }
 
-  deleteById(id:number):void{
-    this.httpClient.delete(`${this.url}/${id}`);
+
+  //opcion 1
+  //deleteById(id:number): Observable<{}>{ // esto significa no te devulve nada objeto vacio <{}>
+  // return this.httpClient.delete(`${this.url}/${id}`);
+  //}
+  httpOptions ={
+    observe: 'response' as 'body'
   }
+  
+  //opcion 2:
+  deleteById(id:number): Observable<HttpResponse<{}>> {
+    return this.httpClient.delete<HttpResponse<{}>>(`${this.url}/${id}`, this.httpOptions);
+   }
 }
