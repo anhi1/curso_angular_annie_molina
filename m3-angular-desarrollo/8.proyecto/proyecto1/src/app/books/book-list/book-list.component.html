@@ -16,6 +16,12 @@ Crear libro
 </a>
 </mat-chip-listbox>
 
+<!----------------Libros disponibles---------->
+
+<div *ngIf="books.length>0">
+  {{books.length}}libros disponibles
+</div>
+
 <!--------------------tabla-------------->
 <table mat-table [dataSource]="books" class="mat-elevation-z8">
 
