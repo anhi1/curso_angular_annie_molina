@@ -31,6 +31,10 @@ const routes: Routes = [
     component: BookListComponent
   },
   {
+    path: 'category/:categoryId',    // avatarchips
+    component: BookListComponent
+  },
+  {
     path: '**', redirectTo: '', pathMatch: 'full'
   }
 ];

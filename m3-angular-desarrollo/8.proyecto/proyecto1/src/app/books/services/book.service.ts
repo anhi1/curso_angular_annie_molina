@@ -18,6 +18,10 @@ export class BookService {
   findAllByAuthorId(authorId:number): Observable<IBook[]>{
     return this.httpClient.get<IBook[]>(`${this.url}?authorId=${authorId}`);
   }
+
+  findAllByCategoryId(categoryId:number): Observable<IBook[]>{
+    return this.httpClient.get<IBook[]>(`${this.url}?categories_like=${categoryId}`);
+  }
   
 
   findById(id: number):Observable<IBook>{
