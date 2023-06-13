@@ -29,3 +29,8 @@ npm run start:dev
 o 
 
 nest start --watch
+
+## Nest controladores
+
+nest new backend02 --skip-git --package-manager npm
+npm run start:dev
