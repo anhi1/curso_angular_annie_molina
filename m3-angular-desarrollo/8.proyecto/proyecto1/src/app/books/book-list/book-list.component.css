@@ -39,3 +39,10 @@ table{
   border-radius: 50%;
   max-width: 100px;
 }
+
+.category{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
