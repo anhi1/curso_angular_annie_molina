@@ -19,6 +19,12 @@ export class BookService {
 
     findById(id: number): IBook | undefined {
     return this.books.find(book => book.id === id);  //find devuelve un objeto
+      
+    }
+
+    findAllByTitle(title:string):IBook[]{
+      return this.books.filter(book =>
+         book.title.toLowerCase().includes(title.toLowerCase())); // filter devuelve
     }
 
     public save(book:IBook): IBook{
@@ -47,4 +53,9 @@ export class BookService {
         if (position === -1) throw new Error("404 not found");
         return this.books.splice(position, 1).length === 1; // length === 1 quiere decir que se ha borrado un objeto: truev
       }
+
+      deleteAll(){
+        this.books = [];
+      }
+
 }

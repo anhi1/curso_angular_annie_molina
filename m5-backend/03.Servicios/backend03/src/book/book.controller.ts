@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpCode, NotFoundException, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, HttpCode, NotFoundException, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { BookService } from './book.service';
 import { IBook } from './book.model';
 
@@ -22,6 +22,16 @@ export class BookController {
     }
 
     // TODO findByTitleContains
+    @Get('title/:title')
+    findAllByTitleContains(@Param('title') title: string): IBook[]{ // te trael array de libros
+        if(title.length ===0)
+            throw new BadRequestException('titulo no puede estar vacio'); // 400
+
+        return this.bookService.findAllByTitle(title);
+
+    }
+
+
     @Post()
     create(@Body() book: IBook): IBook { 
         return this.bookService.save(book);
@@ -36,5 +46,13 @@ export class BookController {
     deleteById(@Param('id', ParseIntPipe) id: number) {
         this.bookService.deleteById(id);
     }
+    
+    @Delete()
+    @HttpCode(204)
+        deleteAll() {
+            //this.bookService.removeRelations();
+            this.bookService.deleteAll();
+        }
+    }
 
-}
+
