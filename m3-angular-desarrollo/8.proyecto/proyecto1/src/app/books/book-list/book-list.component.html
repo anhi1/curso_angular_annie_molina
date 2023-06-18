@@ -6,89 +6,51 @@
 Crear libro
 </button>
 
+
+<!-----   Usuario  ----->
+
 <div *ngIf="author" class="list-header">
   <img class="list-header-img" [src]="author.photo" [alt]="author.fullName">
   <h2>Autor {{author.fullName}}</h2>
 </div>
 
-<!--
-  <div *ngIf="category" class="list-header">
-  <img class="list-header-img" [src]="category.photo" [alt]="category.name">
-  <h2>Categoría {{category.name}}</h2>
-</div>
--->
 
 
   
 <!----------------- category ------------>
 <div>
   <h1>Categorias</h1>
-  <div class="table-count" *ngIf="books.length > 0">
+  <div *ngIf="books.length > 0">
     Hay {{books.length}} libros en total.
   </div>
 
   <div class="category">
     <a *ngFor="let category of categories" [routerLink]="['/books/category', category.id]">
-      <img [src]="category.photo" [alt]="category.name" />
+      <img [src]="category.photo" [alt]="category.name"/>
       {{category.name}}
     </a>
   </div>
 </div>
-<!---------------------tabla----------------->
 
-<table mat-table [dataSource]="books" class="mat-elevation-z8">
 
-  <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef>Título</th>
-    <td mat-cell *matCellDef="let book">{{ book.title | lowercase}}</td>
-  </ng-container>
 
-  <ng-container matColumnDef="sinopsis">
-    <th mat-header-cell *matHeaderCellDef>Sinopsis</th>
-    <td mat-cell *matCellDef="let book">{{ book.sinopsis | limitLongText:15}}</td>
-  </ng-container>
+<!---------------------card----------------->
 
-  <ng-container matColumnDef="release">
-    <th mat-header-cell *matHeaderCellDef>Fecha lanzamiento</th>
-    <td mat-cell *matCellDef="let book">{{ book.release | date:'dd/MM/YYYY'}}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="numPages">
-    <th mat-header-cell *matHeaderCellDef>Número páginas</th>
-    <td mat-cell *matCellDef="let book">{{ book.numPages }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="price">
-    <th mat-header-cell *matHeaderCellDef>Precio</th>
-    <td mat-cell *matCellDef="let book" style="width: 80px;">{{ book.price | number:'1.2-2'}} €</td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>Acciones</th>
-    <td mat-cell *matCellDef="let book" style="width: 300px;">
-
-      <button mat-button color="primary" class="btn-primary" [routerLink]="['/books', book.id]">
-        <mat-icon>visibility</mat-icon>
-        Ver
-      </button>
-
-      <button mat-button color="primary" class="btn-primary" [routerLink]="['/books', book.id, 'edit']">
-        <mat-icon>edit</mat-icon>
+  <div class="container" >
+    <div class="card" *ngFor=" let book of books">
+      <img  class="card__imagen" [src]="book.photo" style="max-width: 100%;">
+      <p>{{book.id}}</p>
+      <p>{{book.title | lowercase}}</p>
+      <div>
+       <button [routerLink]="['/books', book.id]">
+        ver
+       </button>
+       <button [routerLink]="['/books', book.id, 'edit']">
         Editar
-      </button>
-
-      <button mat-button color="primary" class="btn-primary" (click)="deleteBook(book)">
-        <mat-icon>delete</mat-icon>
-        Borrar
-      </button>
-
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
-</table>
-<div *ngIf="books.length === 0" style="text-align: center; min-height: 100px;">
-  No se han encontrado libros.
-</div>
+        </button>
+        <button (click)="deleteBook(book)">
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>

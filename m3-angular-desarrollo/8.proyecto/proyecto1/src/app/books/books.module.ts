@@ -21,6 +21,9 @@ import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCardModule} from '@angular/material/card';
+
+
 
 import {MatExpansionModule} from '@angular/material/expansion';
 
@@ -50,7 +53,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
         MatListModule,
         MatChipsModule,
         MatSnackBarModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatCardModule
 
     ],
     providers:[
