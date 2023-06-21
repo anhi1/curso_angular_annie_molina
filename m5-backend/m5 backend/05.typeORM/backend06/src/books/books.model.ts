@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Author } from "src/authors/authors.model";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 
 @Entity() 
@@ -27,6 +28,12 @@ export class Book{
 
     @Column({type:'boolean', default:false})
     published: boolean;
+
+
+    // author ManyToOne
+    @ManyToOne(() => Author) // pilla automatica si es llave primary
+    @JoinColumn({ name: 'id_author'}) //join se una a una tabla es la coluna q unea las dos tablas
+    author: Author;
 
     
 }
