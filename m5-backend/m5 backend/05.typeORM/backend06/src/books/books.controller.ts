@@ -9,7 +9,22 @@ export class BooksController {
 
     @Get()
     findAll(): Promise<Book[]>{
-        return this.bookService.findAll();
+        return this.bookService.findAll(); 
+    }
+
+    @Get('load-relations')
+    findAllWithRelations(): Promise<Book[]>{
+       return this.bookService.findAllWithRelations();
+    }
+
+    @Get('proyections')
+    findAllProyections(): Promise<Book[]>{
+         return this.bookService.findAllProyections(); 
+    }
+
+    @Get('author/:authorId')
+    findAllByAuthorId(): Promise<Book[]>{
+       return this.bookService.findAllByAuthorId(2);
     }
 
     @Get('id/:id')
@@ -53,12 +68,13 @@ export class BooksController {
     }
 
 
-    @Post()  //http://localhost:3000/books  / post / raw body
+    @Post()  //http://localhost:3000/books  / post / raw /body
      async create(@Body() book:Book): Promise<Book> {
         return await this.bookService.create(book);
     }
     
 
+    //Put /body / raw
     @Put()
     async update(@Body() book:Book): Promise<Book>{
         return await this.bookService.update(book);
@@ -69,4 +85,12 @@ export class BooksController {
        return await this.bookService.deleteById(id);
     }
     
+    @Delete('author-id/:authorId') // DELETE /NONE   //http://localhost:3000/author-id/1
+    async deleteAllByAuthorId(
+        @Param('authorId', ParseIntPipe) authorId: number
+    ): Promise<void> {
+        return await this.bookService.deleteAllByAuthorId(authorId);
+    }
 }
+
+

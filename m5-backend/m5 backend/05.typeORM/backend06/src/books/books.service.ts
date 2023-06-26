@@ -12,6 +12,32 @@ export class BooksService {
     // SELECT * FROM books;
     return this.bookRepo.find();
   }
+
+  findAllWithRelations(): Promise<Book[]> {
+    return this.bookRepo.find({
+      relations: {
+        author: true,
+        editorial:true
+      }
+    });
+  }
+
+  findAllProyections(): Promise<Book[]> {
+    return this.bookRepo.find({
+      select:{ // select es un atributo
+        id: true,
+        isbn: true,
+        author: {
+          id: true,
+          name:true
+        }
+      },
+      relations: {
+        author: true,
+      }
+    });
+  }
+
   findById(id: number): Promise<Book | null> {
     // SELECT * FROM books Where id = 1;
     console.log(id);
@@ -21,6 +47,22 @@ export class BooksService {
       },
     });
   }
+ 
+  //lo mismo para editorial findAllByEditorialId
+  findAllByAuthorId(authorId: number): Promise<Book[]>{
+    return this.bookRepo.find({
+      relations:{
+        author:true
+      },
+      where:{
+        author:{
+          id: authorId
+        }
+      }
+    });
+  }
+
+
 
   findAllByTitleEquals(title: string): Promise<Book[]> {
     console.log(title);
@@ -51,7 +93,6 @@ export class BooksService {
     });
   }
 
-
   findAllByPublishedTrue(): Promise<Book[]> {
     return this.bookRepo.find({
       where: {
@@ -69,69 +110,91 @@ export class BooksService {
     });
   }
 
-
   // findAllOrderByPriceAsc
-  findAllOrderByPriceAsc(): Promise<Book[]>{
+  findAllOrderByPriceAsc(): Promise<Book[]> {
     return this.bookRepo.find({
       order: {
         price: 'ASC',
-
       },
     });
   }
 
-
   // create / await = tienes que esperar hasta q el metodo haga algo
-  async create(book: Book): Promise <Book>{
-    try{
+  async create(book: Book): Promise<Book> {
+    try {
       return await this.bookRepo.save(book);
-    }catch (error){
-      console.log("fallísimo");
-      throw new ConflictException('No se ha podido guardar el libro')
+    } catch (error) {
+      console.log('fallísimo');
+      throw new ConflictException('No se ha podido guardar el libro');
     }
-    
   }
 
   //update // PUT actualizar
-   async update(book: Book): Promise<Book>{
+  async update(book: Book): Promise<Book> {
     let bookFromDB = await this.bookRepo.findOne({
       where: {
         id: book.id,
       },
     });
 
-    if(!bookFromDB) throw new NotFoundException('libro no encontrado');
+    if (!bookFromDB) throw new NotFoundException('libro no encontrado');
 
-    try{
+    try {
       bookFromDB.price = book.price;
       bookFromDB.published = book.published;
       bookFromDB.quantity = book.quantity;
       bookFromDB.title = book.title;
+      bookFromDB.author = book.author;
+      bookFromDB.editorial = book.editorial;
 
       await this.bookRepo.update(bookFromDB.id, bookFromDB);
       return bookFromDB;
-    } catch (error){
+    } catch (error) {
       throw new ConflictException('Error actualizando el libro');
     }
-    
+  }
+
+  // DELETE /  BODY / NONE
+  async deleteById(id: number): Promise<void> {
+    //comrpueba si existe esa entidad
+    let exist = await this.bookRepo.exist({
+      where: {
+        id: id,
+      },
+    });
+
+    if (!exist) throw new NotFoundException('Not found');
+
+    try {
+      await this.bookRepo.delete(id);
+    } catch (error) {
+      throw new ConflictException('No se puede borrar');
+    }
   }
 
 
-  // DELETE /  BODY / NONE
-   async deleteById(id:number): Promise<void>{  //comrpueba si existe esa entidad
-    let exist= await this.bookRepo.exist({
-      where:{
-        id: id
+
+  async deleteAllByAuthorId(authorId: number){ //antes de borrar el autor borras sus libros
+  
+    let books = await this.bookRepo.find({
+      //enconrtrar libros y luego  eliminar libros
+      select: {
+        id: true,  // trae los id d elos libros
+      },
+      relations: {
+        author: true,
+      },
+      where: {
+        author: {
+          id: authorId,
+        }
       }
     });
 
-    if(!exist) throw new NotFoundException('Not found');
-
-    try{
-      await this.bookRepo.delete(id);
-    }catch(error){
-      throw new ConflictException('No se puede borrar')
-    }
-    
+    let ids = books.map( book => book.id );
+    await this.bookRepo.delete([1, 2, 3]);
   }
+
+  
+
 }

@@ -1,4 +1,5 @@
 import { Author } from "src/authors/authors.model";
+import { Editorial } from "src/editorials/editorials.model";
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 
@@ -34,6 +35,10 @@ export class Book{
     @ManyToOne(() => Author) // pilla automatica si es llave primary
     @JoinColumn({ name: 'id_author'}) //join se una a una tabla es la coluna q unea las dos tablas
     author: Author;
+    
+    @ManyToOne(() => Editorial) // pilla automatica si es llave primary
+    @JoinColumn({ name: 'id_editorial'}) //join se una a una tabla es la coluna q unea las dos tablas
+    editorial: Editorial;
 
     
 }
