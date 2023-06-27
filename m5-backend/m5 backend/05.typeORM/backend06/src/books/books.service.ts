@@ -2,11 +2,15 @@ import { ConflictException, Injectable, NotFoundException } from '@nestjs/common
 import { Book } from './books.model';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Between, ILike, Long, MoreThanOrEqual, Repository } from 'typeorm';
+import { CategoriesService } from 'src/categories/categories.service';
 
 
 @Injectable()
 export class BooksService {
-  constructor(@InjectRepository(Book) private bookRepo: Repository<Book>) {}
+  constructor(
+    @InjectRepository(Book) private bookRepo: Repository<Book>,
+    private categoryService: CategoriesService,
+  ) {}
 
   findAll(): Promise<Book[]> {
     // SELECT * FROM books;
@@ -17,52 +21,55 @@ export class BooksService {
     return this.bookRepo.find({
       relations: {
         author: true,
-        editorial:true
+        editorial: true,
+        categories: true,
       }
     });
   }
 
   findAllProyections(): Promise<Book[]> {
     return this.bookRepo.find({
-      select:{ // select es un atributo
+      select: {
+        // select es un atributo
         id: true,
         isbn: true,
         author: {
           id: true,
-          name:true
-        }
+          name: true,
+        },
       },
       relations: {
         author: true,
-      }
+      },
     });
   }
+
+  //lo mismo para editorial findAllByEditorialId
+  findAllByAuthorId(authorId: number): Promise<Book[]> {
+    return this.bookRepo.find({
+      relations: {
+        author: true,
+      },
+      where: {
+        author: {
+          id: authorId,
+        },
+      },
+    });
+  }
+
 
   findById(id: number): Promise<Book | null> {
     // SELECT * FROM books Where id = 1;
     console.log(id);
     return this.bookRepo.findOne({
       where: {
-        id: id,
-      },
-    });
-  }
- 
-  //lo mismo para editorial findAllByEditorialId
-  findAllByAuthorId(authorId: number): Promise<Book[]>{
-    return this.bookRepo.find({
-      relations:{
-        author:true
-      },
-      where:{
-        author:{
-          id: authorId
-        }
+        id: id
       }
     });
   }
 
-
+  
 
   findAllByTitleEquals(title: string): Promise<Book[]> {
     console.log(title);
@@ -77,7 +84,7 @@ export class BooksService {
     console.log(title);
     return this.bookRepo.find({
       where: {
-        title: ILike(`%${title}%`), // mayusculas
+        title: ILike(`%${title}%`), // mayusculas // contenga una palabra
       },
     });
   }
@@ -89,7 +96,7 @@ export class BooksService {
     return this.bookRepo.find({
       where: {
         price: Between(minPrice, maxPrice),
-      },
+      }
     });
   }
 
@@ -124,7 +131,7 @@ export class BooksService {
     try {
       return await this.bookRepo.save(book);
     } catch (error) {
-      console.log('fallísimo');
+      console.log(error.message);
       throw new ConflictException('No se ha podido guardar el libro');
     }
   }
@@ -134,12 +141,13 @@ export class BooksService {
     let bookFromDB = await this.bookRepo.findOne({
       where: {
         id: book.id,
-      },
+      }
     });
 
     if (!bookFromDB) throw new NotFoundException('libro no encontrado');
 
     try {
+      console.log(book); // agregamos el log para encontrar el error
       bookFromDB.price = book.price;
       bookFromDB.published = book.published;
       bookFromDB.quantity = book.quantity;
@@ -147,54 +155,76 @@ export class BooksService {
       bookFromDB.author = book.author;
       bookFromDB.editorial = book.editorial;
 
-      await this.bookRepo.update(bookFromDB.id, bookFromDB);
-      return bookFromDB;
-    } catch (error) {
-      throw new ConflictException('Error actualizando el libro');
+      //Opcion 1: buscar las categorias
+      //let categoryIds = book.categories.map(cat => cat.id);
+      // let categories = await this.categoryService.findAllByIds(categoryIds);
+      //bookFromDB.categories = categories;
+
+       // Opción 2: cargar las categorías directamente
+      bookFromDB.categories = book.categories;
+            return await this.bookRepo.save(bookFromDB);
+
+      } catch (error) {
+            console.log(error);
+            throw new ConflictException('Error actualizando el libro');
+      }
     }
-  }
+
 
   // DELETE /  BODY / NONE
   async deleteById(id: number): Promise<void> {
     //comrpueba si existe esa entidad
     let exist = await this.bookRepo.exist({
       where: {
-        id: id,
-      },
+        id: id
+      }
     });
 
-    if (!exist) throw new NotFoundException('Not found');
 
+    if (!exist) throw new NotFoundException('Not found');
     try {
       await this.bookRepo.delete(id);
     } catch (error) {
       throw new ConflictException('No se puede borrar');
     }
+    
   }
 
 
+//antes de borrar el autor borras sus libros
+ 
 
-  async deleteAllByAuthorId(authorId: number){ //antes de borrar el autor borras sus libros
-  
-    let books = await this.bookRepo.find({
-      //enconrtrar libros y luego  eliminar libros
-      select: {
-        id: true,  // trae los id d elos libros
-      },
-      relations: {
-        author: true,
-      },
-      where: {
-        author: {
-          id: authorId,
-        }
-      }
-    });
+    async deleteAllByAuthorId(authorId: number) {
 
-    let ids = books.map( book => book.id );
-    await this.bookRepo.delete([1, 2, 3]);
+      // Opcion 1
+      // let books = await this.bookRepo.find({
+      //     select: {
+      //         id: true            
+      //     },
+      //     relations: {
+      //         author: false
+      //     },
+      //     where: {
+      //         author: {
+      //             id: authorId
+      //         }
+      //     }
+      // });
+      // let ids = books.map(book => book.id)
+      // await this.bookRepo.delete(ids);
+
+      // Opcion 2: una sola sentencia sql
+      await this.bookRepo.delete({
+          author: {
+              id: authorId
+          }
+      });
+
+
   }
-
-  
-
 }
+
+
+
+
+

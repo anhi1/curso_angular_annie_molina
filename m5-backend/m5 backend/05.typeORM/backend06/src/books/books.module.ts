@@ -3,9 +3,13 @@ import { BooksController } from './books.controller';
 import { BooksService } from './books.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Book } from './books.model';
+import { CategoriesModule } from 'src/categories/categories.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Book])], // forFeature configura la tabla de libros
+  imports: [
+    TypeOrmModule.forFeature([Book]),
+    CategoriesModule                  // forFeature configura la tabla de libros
+  ],
   controllers: [BooksController],
   providers: [BooksService]
 })
