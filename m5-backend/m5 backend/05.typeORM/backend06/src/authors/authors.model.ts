@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Location } from 'src/locations/locations.model'
 
 
 @Entity()
@@ -22,5 +23,9 @@ export class Author {
 
     @UpdateDateColumn({name: 'update_date'})
     updateDate: Date;
+
+    @OneToOne(() => Location, {cascade: true, eager:true}) //ciudado con el eager
+    @JoinColumn({name: 'id_location'}) //es obligatorio
+    location: Location;
 
 }

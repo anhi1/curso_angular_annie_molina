@@ -6,9 +6,10 @@ import { BooksModule } from './books/books.module';
 import { AuthorsModule } from './authors/authors.module';
 import { EditorialsModule } from './editorials/editorials.module';
 import { LocationsModule } from './locations/locations.module';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
-  imports: [DatabaseModule, BooksModule, AuthorsModule, EditorialsModule, LocationsModule],
+  imports: [DatabaseModule, BooksModule, AuthorsModule, EditorialsModule, LocationsModule, CategoriesModule],
   controllers: [AppController],
   providers: [AppService],
 })
