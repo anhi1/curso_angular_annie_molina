@@ -41,7 +41,7 @@ export class Book {
 
 
   @ManyToMany(() => Category, {cascade:true})
-  @JoinTable({// esto es un objeto //optional // crea una tabla intermedia  // intentar intercambiar el nombre de las columnas
+  @JoinTable({// esto es un objeto //optional // crea una tabla intermedia  // jointable me permite modificar el nombre de las columnas
     name: 'book_category',
     joinColumn: {name:'id_book'}, // cambiando el nombre de la primera columna
     inverseJoinColumn: {name:'id_category'}

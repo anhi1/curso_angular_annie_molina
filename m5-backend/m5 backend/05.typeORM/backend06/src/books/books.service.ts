@@ -164,6 +164,7 @@ export class BooksService {
       bookFromDB.categories = book.categories;
             return await this.bookRepo.save(bookFromDB);
 
+       
       } catch (error) {
             console.log(error);
             throw new ConflictException('Error actualizando el libro');
@@ -193,7 +194,6 @@ export class BooksService {
 
 //antes de borrar el autor borras sus libros
  
-
     async deleteAllByAuthorId(authorId: number) {
 
       // Opcion 1

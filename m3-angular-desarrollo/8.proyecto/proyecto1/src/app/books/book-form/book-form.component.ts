@@ -96,7 +96,7 @@ export class BookFormComponent implements OnInit {
       authorId: authorId,  //0 signidfca que no hay ningun autor seleccionado
       categories: categories
     }
-
+    
     
     //mandar a guarda el objeto en una base, luego navegamos a la panatalla donde esta le libro
     if (id === 0) // crear nuevo libro
