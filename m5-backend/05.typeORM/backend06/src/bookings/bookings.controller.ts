@@ -1,18 +1,21 @@
-import { Controller, Param, ParseIntPipe } from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
 import { BookingsService } from './bookings.service';
+import { Booking } from './bookings.model';
 
 @Controller('bookings')
 export class BookingsController {
-    constructor(private bookingService: BookingsService){}
+    constructor(private bookingService: BookingsService) {}
 
-    @Get('user/:useId')
-    @Param("userId", ParseIntPipe)
-    findAllByUserId(): Promise<Book[]>{
-       return this.bookService.findAllByAuthorId(2);
+    @Get('user/:userId')
+    findAllByUserId(
+        @Param("userId", ParseIntPipe) 
+        userId: number): Promise<Booking[]> {
+        return this.bookingService.findAllByUserId(userId);
     }
 
-    @Post()  //http://localhost:3000/books  / post / raw /body
-     async create(@Body() book:Book): Promise<Book> {
-        return await this.bookService.create(book);
+    @Post()
+    async create(@Body() booking: Booking): Promise<Booking> {
+        return await this.bookingService.create(booking);
     }
+
 }

@@ -12,16 +12,14 @@ import { User } from 'src/users/users.model';
         TypeOrmModule.forRoot({ //pasarle atributos
             type:'mysql',
             host:'localhost',
-            port: 3306,  // se puede cambiar la instalacion si deseas
+            port: 3306,     // se puede cambiar la instalacion si deseas
             username: 'root',
-            password: '2746',
-            //process.env.NEST_PASSWORD, //sustituir por variable d entorno para que tu contraseña en gith nadie lo vea
+            password: '2746',    //process.env.NEST_PASSWORD, //sustituir por variable d entorno para que tu contraseña en gith nadie lo vea
             database: 'backend_nest',
-            entities:[ //detecta que directorio estas
-                //__dirname + '/../**/*.model.ts'
+            entities:[    //detecta que directorio estas   //__dirname + '/../**/*.model.ts'
                 Book, Author, Editorial, Location, Category, User
             ],
-            synchronize: true, //genera tablas automaticante en base a entidades
+            synchronize: true,  //genera tablas automaticante en base a entidades
             logging:true
             
         }) 
