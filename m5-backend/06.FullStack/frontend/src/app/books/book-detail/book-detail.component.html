@@ -4,12 +4,12 @@
       <h2>Portada</h2>
       <img src="{{ book.photo }}" style="max-width: 150px;" />
 
-      <mat-list *ngIf="author">
+      <mat-list *ngIf="book.author">
         <mat-list-item>
-          <img matListItemAvatar src="{{author.photo}}" alt="{{author.fullName}}">
+          <img matListItemAvatar src="{{book.author.photo}}" alt="{{book.author.name}}">
           <div matListItemTitle>
-            <a [routerLink]="['/authors', author.id]">
-              {{author.fullName}}
+            <a [routerLink]="['/authors', book.author.id]">
+              {{book.author.name}}
             </a>
           </div>
         </mat-list-item>

@@ -8,9 +8,9 @@
 
   <mat-grid-tile rowspan="2">
     <div>
-      <h2>Autor {{ author.fullName }}</h2>
+      <h2>Autor {{ author.name }}</h2>
       <p>Nacimiento: {{ author.birthday | date : "dd/MM/YYYY" }}</p>
-      <p>Origen: {{ author.city }}</p>
+      <p *ngIf="author.location">Origen: {{ author.location.country }}</p>
     </div>
   </mat-grid-tile>
 

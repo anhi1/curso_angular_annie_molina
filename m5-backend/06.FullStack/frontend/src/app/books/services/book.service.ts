@@ -16,18 +16,21 @@ export class BookService {
     return this.httpClient.get<IBook[]>(this.url);
   }
 
-  // http://localhost:3000/books?authorId=1
-  findAllByAuthorId(authorId: number): Observable<IBook[]> {
-    return this.httpClient.get<IBook[]>(`${this.url}?authorId=${authorId}`);
+  findAllWithRelations(): Observable<IBook[]> {
+    return this.httpClient.get<IBook[]>(`${this.url}/load-relations`);
   }
 
-  // http://localhost:3000/books?categories_like=3
+  findAllByAuthorId(authorId: number): Observable<IBook[]> {
+    return this.httpClient.get<IBook[]>(`${this.url}/author/${authorId}`);
+  }
+
+  // TODO - hacer en backend
   findAllByCategoryId(categoryId: number): Observable<IBook[]>{
     return this.httpClient.get<IBook[]>(`${this.url}?categories_like=${categoryId}`);
   }
 
   findById(id: number): Observable<IBook> {
-    return this.httpClient.get<IBook>(`${this.url}/${id}`);
+    return this.httpClient.get<IBook>(`${this.url}/id/${id}`);
   }
 
   create(book :IBook): Observable<IBook> {
@@ -35,7 +38,7 @@ export class BookService {
   }
 
   update(book: IBook): Observable<IBook> {
-    return this.httpClient.put<IBook>(`${this.url}/${book.id}`, book);
+    return this.httpClient.put<IBook>(`${this.url}`, book);
   }
 
   // Opción 1

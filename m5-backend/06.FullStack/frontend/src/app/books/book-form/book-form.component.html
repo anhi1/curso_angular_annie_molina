@@ -48,13 +48,13 @@
 
     <mat-form-field>
       <mat-label>Selecciona el autor/a del libro</mat-label>
-      <mat-select formControlName="authorId" name="authorId">
+      <mat-select formControlName="author" name="author">
         <mat-option>Ninguna</mat-option>
-        <mat-option *ngFor="let author of authors" [value]="author.id">
-          {{author.fullName}}
+        <mat-option *ngFor="let author of authors" [value]="author">
+          {{author.name}}
         </mat-option>
       </mat-select>
-      <mat-error *ngIf="bookForm.get('authorId')?.invalid && bookForm.get('authorId')?.touched">
+      <mat-error *ngIf="bookForm.get('author')?.invalid && bookForm.get('author')?.touched">
         Es obligatorio seleccionar un autor.
       </mat-error>
     </mat-form-field>
@@ -62,7 +62,7 @@
     <mat-form-field>
       <mat-label>Géneros o categorías</mat-label>
       <mat-select formControlName="categories" multiple>
-        <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option>
+        <mat-option *ngFor="let category of categories" [value]="category">{{category.name}}</mat-option>
       </mat-select>
       <mat-hint>Puedes seleccionar más de una categoría.</mat-hint>
     </mat-form-field>

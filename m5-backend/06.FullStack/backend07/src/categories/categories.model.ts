@@ -12,6 +12,9 @@ export class Category {
     @Column({length: 300})
     description: string;
 
+    @Column()
+    color: string;
+
     // nullable true indica opcional
     @Column({nullable: true})
     photo?: string;

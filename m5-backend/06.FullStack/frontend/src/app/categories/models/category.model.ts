@@ -1,7 +1,8 @@
 export interface ICategory {
   id: number;
   name: string;
-  minAge: number;
+  description: string;
   color: string;
   photo: string;
+  minAge: number;
 }

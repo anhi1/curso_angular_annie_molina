@@ -15,7 +15,7 @@ import { User } from 'src/users/users.model';
             host: 'localhost',
             port: 3306,
             username: 'root',
-            password: 'admin', // sustituir por variable de entorno
+            password: '2746', // sustituir por variable de entorno
             // password: process.env.NEST_PASSWORD,
             database: 'backend_nest',
             entities: [

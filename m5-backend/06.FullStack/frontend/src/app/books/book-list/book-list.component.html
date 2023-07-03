@@ -7,8 +7,8 @@ Crear libro
 </button>
 
 <div *ngIf="author" class="list-header">
-  <img class="list-header-img" [src]="author.photo" [alt]="author.fullName">
-  <h2>Autor {{author.fullName}}</h2>
+  <img class="list-header-img" [src]="author.photo" [alt]="author.name">
+  <h2>Autor {{author.name}}</h2>
 </div>
 
 <div *ngIf="category" class="list-header">
@@ -49,8 +49,8 @@ Crear libro
 
       <a *ngFor="let author of authors" [routerLink]="['/books/author', author.id]">
         <mat-chip-option color="primary">
-          <img matChipAvatar [src]="author.photo" [alt]="author.fullName"/>
-          {{author.fullName}}
+          <img matChipAvatar [src]="author.photo" [alt]="author.name"/>
+          {{author.name}}
         </mat-chip-option>
       </a>
 

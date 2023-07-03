@@ -28,6 +28,18 @@ export class Book {
     @Column({type: 'boolean', default: false})
     published: boolean;
 
+    @Column({type: 'text'})
+    sinopsis: string;
+
+    @Column()
+    release: Date;
+
+    @Column({name: 'num_pages'})
+    numPages: number;
+
+    @Column()
+    photo: string;
+
     @ManyToOne(() => Author)
     @JoinColumn({ name: 'id_author'})
     author: Author;
