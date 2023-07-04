@@ -14,6 +14,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { BooksModule } from './books/books.module';
 import { AuthorsModule } from './authors/authors.module';
 import { CategoriesModule } from './categories/categories.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CategoriesModule } from './categories/categories.module';
     MatGridListModule,
     BooksModule,
     AuthorsModule,
-    CategoriesModule
+    CategoriesModule,
+    AuthModule
 
   ],
   providers: [],

@@ -1,27 +1,44 @@
-# Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+# Frontend con Angular
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+ng generate component layout/navbar
+ng generate component layout/footer
 
-## Code scaffolding
+ng generate module books --routing --module app.module
+ng generate component books/book-list
+ng generate component books/book-gallery
+ng generate component books/book-detail
+ng generate component books/book-form
+ng generate interface books/models/book --type=model --prefix=I
+ng generate service books/services/book
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ng generate module shared
+ng generate pipe shared/LimitLongText
+Importar SharedModule en BookModule
 
-## Build
+ng generate module authors --routing --module app.module
+ng generate interface authors/models/author --type=model --prefix=I
+ng generate service authors/services/author
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+ng generate module categories --routing --module app.module
+ng generate interface categories/models/category --type=model --prefix=I
+ng generate service categories/services/category
 
-## Running unit tests
+ng generate component authors/author-detail
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Autenticación
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Módulo auth:
+* ng generate module auth --routing --module app.module
+* ng generate service auth/auth
+* ng generate component auth/login
+* ng generate component auth/register
+* Crear JwtInterceptor
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Módulo users:
+* ng generate module users --routing --module app.module
+* ng generate interface users/user --type=model --prefix=I
+* ng generate service users/user
+* ng generate component users/profile

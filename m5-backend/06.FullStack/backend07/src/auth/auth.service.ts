@@ -2,10 +2,13 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from 'src/users/users.service';
 import { TokenDTO } from './dto/token.dto';
+import { User } from 'src/users/users.model';
+import * as bcrypt from 'bcrypt'; // cifra la contraseña para qu no este en texto plano
 import { LoginDTO } from './dto/loging.dto';
 
 @Injectable()
 export class AuthService {
+
     constructor(
         private userService: UsersService,
         private jwtService: JwtService
@@ -19,13 +22,14 @@ export class AuthService {
         if(!user) 
             throw new UnauthorizedException('Credenciales incorrectas'); // 401
 
-        if(user.password !== login.password) 
+        // comprobar contraseña cifrada:
+        if(! bcrypt.compareSync(login.password, user.password)) 
             throw new UnauthorizedException('Credenciales incorrectas'); // 401
 
-        
         let payload = {
             email: user.email,
-            sub: user.id
+            sub: user.id,
+            role: user.role
         }
 
         let token: TokenDTO = {
@@ -34,5 +38,19 @@ export class AuthService {
 
         return token;
 
+    }
+
+    async register(user: User): Promise<TokenDTO> {
+
+        let loginDTO: LoginDTO = {
+            email: user.email,
+            password: user.password // contraseña original
+        }
+
+        // cifrar contraseña bcrypt //estas aplicandole un metodo
+        user.password = bcrypt.hashSync(user.password, 10); // contraseña cifrada
+        await this.userService.create(user);
+
+        return await this.login(loginDTO);
     }
 }
