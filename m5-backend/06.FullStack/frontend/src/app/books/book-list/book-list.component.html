@@ -1,10 +1,12 @@
 
 <h2>Listado de libros</h2>
 
-<button mat-raised-button color="primary" routerLink="/books/new">
+<!--Crear libro-->
+<button mat-raised-button color="primary" routerLink="/books/new" *ngIf="authService.isAdmin()">
   <mat-icon>add</mat-icon>
 Crear libro
 </button>
+
 
 <div *ngIf="author" class="list-header">
   <img class="list-header-img" [src]="author.photo" [alt]="author.name">
@@ -95,15 +97,19 @@ Crear libro
         Ver
       </button>
 
-      <button mat-button color="primary" class="btn-primary" [routerLink]="['/books', book.id, 'edit']">
+      <!-- Agregar metodo en edittar y borrar:  *ngIf="authService.isAdmin()-->
+
+      <button mat-button color="primary" class="btn-primary" [routerLink]="['/books', book.id, 'edit']" *ngIf="authService.isAdmin()">
         <mat-icon>edit</mat-icon>
         Editar
       </button>
 
-      <button mat-button color="primary" class="btn-primary" (click)="deleteBook(book)">
+      <button mat-button color="primary" class="btn-primary" (click)="deleteBook(book)" *ngIf="authService.isAdmin()">
         <mat-icon>delete</mat-icon>
         Borrar
       </button>
+
+
 
     </td>
   </ng-container>

@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CategoryService } from 'src/app/categories/services/category.service';
 import { ICategory } from 'src/app/categories/models/category.model';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-book-list',
@@ -32,7 +33,8 @@ export class BookListComponent implements OnInit {
     private authorService: AuthorService,
     private categoryService: CategoryService,
     private activatedRoute: ActivatedRoute,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
