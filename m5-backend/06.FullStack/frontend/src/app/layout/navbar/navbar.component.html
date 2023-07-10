@@ -20,7 +20,9 @@
       <button mat-menu-item>Galería autores</button>
     </mat-menu>
 
-    <button mat-button routerLink="/auth/login">Iniciar sesión</button>
+    <button mat-button *ngIf="!authService.isLoggedIn()" routerLink="/auth/login">Iniciar sesión</button>
+    <button mat-button *ngIf="!authService.isLoggedIn()" routerLink="/auth/register">Crear cuenta</button>
+    <button mat-button *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Cerrar sesión</button> <!--el boton se cerrar sesion solo se muestra al haber iniciado sesion-->
 
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>
