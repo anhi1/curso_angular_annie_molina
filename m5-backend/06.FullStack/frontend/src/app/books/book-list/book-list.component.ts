@@ -28,6 +28,9 @@ export class BookListComponent implements OnInit {
   categories: ICategory[] = [];
   author: IAuthor | undefined;
   category: ICategory | undefined;
+  isLoggedIn = false;
+  isAdmin = false;
+
   constructor(
     private bookService: BookService,
     private authorService: AuthorService,
