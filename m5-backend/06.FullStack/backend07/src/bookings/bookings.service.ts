@@ -19,6 +19,9 @@ export class BookingsService {
             throw new ConflictException('Cant save');
         }
     }
+    findAll(): Promise<Booking[]> {
+        return this.bookingRepo.find();
+    }
 
     findAllByUserId(userId: number): Promise<Booking[]> {
         return this.bookingRepo.find({

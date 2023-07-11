@@ -7,7 +7,6 @@ export class UsersController {
 
     constructor(private userService: UsersService) {}
 
-    
 
     // http://localhost:3000/users/id/1
     @Get('id/:id')

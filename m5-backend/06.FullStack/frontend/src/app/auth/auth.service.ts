@@ -5,28 +5,25 @@ import { Router } from '@angular/router';
 import jwt_decode from "jwt-decode";
 import { BASE_URL, TOKEN } from '../shared/constants';
 
-
-
-export interface Token{
-  sub:number; //id del usuario
-  email:string;
+export interface Token {
+  sub: number; // id del usuario
+  email: string;
   role: string;
-  exp: number; // timestamp con la fecha de expiracion
-  iat: number; //Issued At: campo con la fecha de emision del token
-
+  exp: number; // timestamp con la fecha de expiración
+  iat: number; // Issued At: campo con la fecha de emisión del token
 }
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
   url: string = `${BASE_URL}/auth`;
-  
+
   // BehaviorSubject emite valores a suscriptores, es un Observable especializado
   // que siempre emite el último valor a sus observadores
-  isAdmin = new BehaviorSubject<boolean>(false);
+  isAdmin = new BehaviorSubject<boolean>(this.hasAdminToken());
   isLoggedIn = new BehaviorSubject<boolean>(this.hasToken());
-
 
   constructor(
     private httpClient: HttpClient,
@@ -50,11 +47,18 @@ export class AuthService {
     this.isLoggedIn.next(false);
   }
 
-  hasToken() {
+  hasAdminToken(): boolean {
+    let token = localStorage.getItem(TOKEN);
+    if (!token) return false;
+
+    let decoded_token: Token = jwt_decode(token);
+    return decoded_token.role === 'admin';
+  }
+  hasToken() : boolean {
     console.log('checking hasToken()')
     return localStorage.getItem(TOKEN) !== null;
   }
-  
+
   handleLoginResponse(token: any) {
     // Guarda el token en localStorage y actualiza el estado de isAdmin y isLoggedIn
     localStorage.setItem(TOKEN, token);
@@ -63,22 +67,7 @@ export class AuthService {
     this.isLoggedIn.next(true);
   }
 
-  /*
-  isAdmin(){
-    let token = localStorage.getItem(TOKEN)?? ''; //si esto es verdadero q nos devuelva un texto vacio
-    try {
-      let decoded_token: Token = jwt_decode(token); //s de tipo token- devuelve esto como si fuera un objeto y q contiene un atribu role de tipo strjing
-       // detecta el role console.log(decoded_token);
 
-       //lo ponemos en un atribuot
-      let isAdmin= decoded_token.role === 'admin'; // true si es admi //  si no es administrador es false // deviuelve el resultado de una comparacion
-      console.log(isAdmin);
-      return isAdmin
-      
-    }catch (error){
-      console.log(error); // error si es incorrecto
-    }
-    return false;
-  }
-*/
+
 }
+
