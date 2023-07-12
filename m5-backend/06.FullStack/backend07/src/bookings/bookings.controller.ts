@@ -30,4 +30,6 @@ export class BookingsController {
         return await this.bookingService.create(booking);
     }
 
+    
+
 }
