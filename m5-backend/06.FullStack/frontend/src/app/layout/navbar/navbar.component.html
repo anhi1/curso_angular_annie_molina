@@ -58,6 +58,12 @@
       Mi perfil
     </button>
 
+    <!--agregar avatar-->
+    <button mat-button *ngIf="isLoggedIn" routerLink="/users/avatar">
+      <mat-icon>photo_camera</mat-icon>
+      Mi avatar
+    </button>
+
     <button mat-button *ngIf="isLoggedIn" (click)="authService.logout()">
       <mat-icon>logout</mat-icon>
       Cerrar sesión
