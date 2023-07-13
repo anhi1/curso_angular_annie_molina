@@ -9,8 +9,18 @@ import { UsersModule } from './users/users.module';
 import { BookingsModule } from './bookings/bookings.module';
 import { AuthModule } from './auth/auth.module';
 
+
 @Module({
-  imports: [DatabaseModule, BooksModule, AuthorsModule, EditorialsModule, LocationsModule, CategoriesModule, UsersModule, BookingsModule, AuthModule],
+  imports: [
+    DatabaseModule,
+    BooksModule,
+    AuthorsModule,
+    EditorialsModule,
+    LocationsModule,
+    CategoriesModule,
+    UsersModule,
+    BookingsModule,
+    AuthModule],
   controllers: [],
   providers: [],
 })
